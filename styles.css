@@ -49,8 +49,9 @@
   --color-on-dark-muted: var(--aac-dawn); /* [critical] 7.2:1 */
   --color-on-dark-display: var(--aac-ember); /* [critical] large text only (3.7:1) */
   --color-dark-deep: #14342F;              /* scroll shade over the hero photos */
-  --color-panel: rgba(20, 52, 47, 0.82);   /* section panels over the photos */
-  --color-panel-alt: rgba(30, 77, 71, 0.88);
+  --color-panel: rgba(20, 52, 47, 0.40);   /* section panels over the (shaded) photos */
+  --color-panel-alt: rgba(30, 77, 71, 0.50);
+  --color-panel-solo: rgba(20, 52, 47, 0.82); /* safe with no shade at all: first section, and no-JS */
 
   /* Focus ring */
   --color-focus: var(--aac-sound);        /* [critical] */
@@ -246,9 +247,12 @@ a:hover { color: var(--color-link-hover); }
    Sections
    ========================================================================== */
 /* Sections are translucent dark panels over the fixed hero photos, with a
-   light text scheme. Worst case (pure white photo pixel, no shade):
-   .section     rgba(20,52,47,.82) -> linen 7.0:1, dawn 5.7:1
-   .section--alt rgba(30,77,71,.88) -> linen 6.2:1, dawn 5.0:1
+   light text scheme. Contrast, worst case = a pure white photo pixel:
+   - First section (#why-asia) and no-JS: panel-solo .82 with NO shade
+     -> linen 7.0:1, dawn 5.7:1. It is visible while the shade is ramping.
+   - Later sections: shade .60 (fully on before they scroll into view,
+     see script.js) + panel .40 -> linen 5.8:1, dawn 4.8:1;
+     panel-alt .50 -> linen 5.5:1, dawn 4.6:1. ~20-24% of the photo shows.
    Ember-deep and stone are never used directly on these panels. */
 .section {
   position: relative; padding-block: var(--space-2xl);
@@ -264,6 +268,7 @@ a:hover { color: var(--color-link-hover); }
   color: var(--color-text);
 }
 .section--alt { background: var(--color-panel-alt); }
+#why-asia, html:not(.js) .section { background: var(--color-panel-solo); }
 
 /* White surfaces inside sections switch back to the light (default) scheme. */
 .card, .day, .speaker, .hotel, .callout, .badge {
@@ -325,10 +330,17 @@ a:hover { color: var(--color-link-hover); }
 }
 /* Phones: the photo fills the header + window area (a good landscape crop);
    below that it fades into the dark green. */
-.hero-slide { position: absolute; inset: 0 0 auto 0; height: calc(4rem + 62vw); margin: 0; opacity: 0; transition: opacity 1.6s ease; }
+.hero-slide {
+  position: absolute; inset: 0 0 auto 0; height: calc(4rem + 62vw); margin: 0; opacity: 0;
+  transition: opacity 1.6s ease;
+  /* Phones: as you scroll past the hero, the photo zooms from the window
+     size up to fill the screen (--slide-scale, set by script.js). */
+  transform: scale(var(--slide-scale, 1)); transform-origin: 50% 0;
+}
 .hero-slides::after {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: linear-gradient(180deg, rgba(30, 77, 71, 0) calc(4rem + 62vw - 96px), var(--color-dark) calc(4rem + 62vw));
+  opacity: calc(1 - var(--grow, 0));
 }
 .hero-shade {
   position: absolute; inset: 0; z-index: 2;
@@ -359,7 +371,7 @@ html:not(.js) .hero__controls { display: none; }
 
 @media (min-width: 60em) {
   :root { --hero-solid-end: calc(max(var(--gutter), (100vw - var(--container)) / 2 + var(--gutter)) + 34rem + 24px); }
-  .hero-slide { inset: 0; height: auto; }
+  .hero-slide { inset: 0; height: auto; transform: none; }
   .hero-slides::after {
     background: linear-gradient(90deg,
       var(--color-dark) 0, var(--color-dark) var(--hero-solid-end),

@@ -91,12 +91,18 @@ White text on ember (2.6:1) is never used.
 
 The hero crossfades through four photos every 7 seconds, on a layer fixed behind the whole page.
 The photos stay behind the content as you scroll and darken as you move past the hero: the shade
-goes up to 60%, controlled by `MAX_SHADE` in `script.js`.
+goes up to 60%, controlled by `MAX_SHADE` in `script.js`. It reaches full strength before the second
+section scrolls into view. On phones, the photo also zooms out of its top window to fill the screen.
 
-The content sections are translucent dark-green panels, `--color-panel` and `--color-panel-alt` in
-`styles.css`, with light text. They are opaque enough to pass AA contrast even over a white photo,
-with no shade at all. White cards inside them switch back to the dark-on-light scheme. If you make
-the panels more see-through, re-check contrast. There is a pause/play button in the corner. The slideshow starts paused for people who set "reduce
+The content sections are translucent dark-green panels with light text, so about a fifth of the
+photo shows through:
+- `--color-panel` is 40% and `--color-panel-alt` is 50%.
+- The first section uses the heavier `--color-panel-solo` (82%), because it is on screen while the
+  shade is still ramping up. Pages without JavaScript use it for every section.
+
+These numbers are tuned together to pass AA contrast even over a white photo. If you change
+`MAX_SHADE` or the panel opacities, re-check contrast (the math is in the comments in `styles.css`).
+White cards inside the sections switch back to the dark-on-light scheme. There is a pause/play button in the corner. The slideshow starts paused for people who set "reduce
 motion", and it stops while the tab is hidden or the hero is scrolled out of view.
 
 | File (`assets/photos/`) | Source |

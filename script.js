@@ -116,25 +116,37 @@
   }
 
   /* Darken the hero photos as the page scrolls past the hero ------------
-     --shade goes from 0 at the top to MAX once you've scrolled one hero
-     height. The section panels are readable on their own; this just
-     deepens the background. */
-  var shadeLayer = document.querySelector('.hero-shade');
+     Progress t goes 0 -> 1 between the top of the page and the moment the
+     second section (#who) reaches the bottom of the screen, so the shade is
+     fully on before any lighter panel is visible (see the contrast notes in
+     styles.css). On phones the photo also zooms to fill the screen. */
+  var layer = document.querySelector('[data-hero-slides]');
   var heroEl = document.getElementById('top');
-  if (shadeLayer && heroEl) {
+  var secondSection = document.getElementById('who');
+  if (layer && heroEl) {
     var MAX_SHADE = 0.6;
+    var wide = window.matchMedia('(min-width: 60em)');
     var ticking = false;
-    var updateShade = function () {
+    var update = function () {
       ticking = false;
-      var h = heroEl.offsetHeight || window.innerHeight;
-      var t = Math.min(1, Math.max(0, window.scrollY / h));
-      shadeLayer.style.setProperty('--shade', (t * MAX_SHADE).toFixed(3));
+      var vh = window.innerHeight;
+      var end = heroEl.offsetHeight;
+      if (secondSection) end = Math.min(end, secondSection.offsetTop - vh);
+      end = Math.max(1, end);
+      var t = Math.min(1, Math.max(0, window.scrollY / end));
+      layer.style.setProperty('--shade', (t * MAX_SHADE).toFixed(3));
+      layer.style.setProperty('--grow', t.toFixed(3));
+      var scale = 1;
+      if (!wide.matches) {
+        var windowH = 64 + 0.62 * window.innerWidth;   // header + photo window
+        scale = 1 + (Math.max(1, vh / windowH) - 1) * t;
+      }
+      layer.style.setProperty('--slide-scale', scale.toFixed(3));
     };
-    window.addEventListener('scroll', function () {
-      if (!ticking) { ticking = true; requestAnimationFrame(updateShade); }
-    }, { passive: true });
-    window.addEventListener('resize', updateShade);
-    updateShade();
+    var queue = function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue);
+    update();
   }
 
   /* Footer year --------------------------------------------------------- */
