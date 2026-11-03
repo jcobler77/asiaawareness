@@ -64,7 +64,6 @@
      or the hero has scrolled out of view. */
   var slideLayer = document.querySelector('[data-hero-slides]');
   var slides = slideLayer ? Array.prototype.slice.call(slideLayer.querySelectorAll('.hero-slide')) : [];
-  var caption = document.querySelector('[data-hero-caption]');
   var toggleBtn = document.querySelector('[data-hero-toggle]');
   var toggleLabel = document.querySelector('[data-hero-toggle-label]');
   if (slides.length > 1 && toggleBtn) {
@@ -82,13 +81,6 @@
       var img = slide.querySelector('img');
       if (img && img.loading === 'lazy') img.loading = 'eager';
       slide.classList.add('is-active');
-      if (caption) {
-        caption.classList.add('is-changing');
-        setTimeout(function () {
-          caption.textContent = slide.getAttribute('data-caption') || '';
-          caption.classList.remove('is-changing');
-        }, 400);
-      }
       // Warm up the next image so the following fade is smooth.
       var next = slides[(current + 1) % slides.length].querySelector('img');
       if (next && next.loading === 'lazy') next.loading = 'eager';

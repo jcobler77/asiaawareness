@@ -91,19 +91,20 @@ White text on ember (2.6:1) is never used.
 
 The hero crossfades through four photos every 7 seconds, on a layer fixed behind the page. The hero
 is transparent, and every section after it has a solid background, so the page scrolls up over the
-photos. There is a pause/play button. The slideshow starts paused for people who set "reduce
+photos. There is a pause/play button in the corner. The slideshow starts paused for people who set "reduce
 motion", and it stops while the tab is hidden or the hero is scrolled out of view.
 
-| File (`assets/photos/`) | Caption on screen | Source |
-|---|---|---|
-| `new-life-center-*` | Phnom Penh, Cambodia | Living Water partnership photo (Cambodia Vision site) |
-| `flower-crowns-*` | Northern Vietnam | supplied, **confirm location and license** |
-| `street-chinese-signs-540` | Hong Kong | supplied, **confirm location and license**; only 540px wide, so it looks soft on large screens |
-| `bengaluru-street-*` | Bengaluru, India | supplied, **confirm license** |
+| File (`assets/photos/`) | Source |
+|---|---|
+| `hero-1-*` | Living Water partnership photo (Cambodia Vision site) |
+| `hero-2-*` | supplied, **confirm license** |
+| `hero-3-540` | supplied, **confirm license**; only 540px wide, so it looks soft on large screens |
+| `hero-4-*` | supplied, **confirm license** |
+
+The slideshow deliberately shows no place names, in the captions or the alt text.
 
 **To add, remove or reorder a photo:** in `index.html`, each photo is a `<figure class="hero-slide">`
 inside `.hero-slides`.
-- Set the on-screen place label with `data-caption`.
 - Set the crop focus with `style="--pos: X% Y%"`.
 - Write real `alt` text.
 - Only the first slide should have `class="... is-active"` and `fetchpriority="high"`. The rest use `loading="lazy"`.
@@ -154,8 +155,7 @@ Everything below needs real content before launch. Search the files for `PLACEHO
 
 ### Photos
 - [ ] **Hero photo licenses and credits:** confirm each supplied photo is licensed for web use, and add a credit line if its license requires one.
-- [ ] **Hero photo captions:** confirm "Northern Vietnam" and "Hong Kong".
-- [ ] **Replace the Hong Kong photo with a larger version** (at least 1600px wide) if you can find one.
+- [ ] **Replace `hero-3` with a larger version** (at least 1600px wide) if you can find one.
 - [ ] **Permission:** confirm you have permission to feature the photo of children (flower crowns).
 
 ### Copy to review

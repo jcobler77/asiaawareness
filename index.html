@@ -105,39 +105,38 @@ img,svg{max-width:100%;height:auto;display:block}
 
   <!-- 1. HERO ============================================================ -->
   <!-- Rotating hero photos. Fixed behind the page: the sections below scroll up over them.
-       Each slide: data-caption is the place label shown on screen; --pos sets the crop focus. -->
+       Each slide: --pos sets the crop focus. -->
   <div class="hero-slides" data-hero-slides>
-    <figure class="hero-slide is-active" data-caption="Phnom Penh, Cambodia" style="--pos: 62% 72%">
+    <figure class="hero-slide is-active" style="--pos: 62% 72%">
       <picture>
-        <source type="image/webp" srcset="assets/photos/new-life-center-800.webp 800w, assets/photos/new-life-center-1600.webp 1600w" sizes="100vw">
-        <img src="assets/photos/new-life-center-1600.jpg" srcset="assets/photos/new-life-center-800.jpg 800w, assets/photos/new-life-center-1600.jpg 1600w" sizes="100vw" width="1600" height="1067" alt="Students and staff of the New Life Educational Center gathered outside their campus in Phnom Penh, Cambodia" fetchpriority="high" decoding="async">
+        <source type="image/webp" srcset="assets/photos/hero-1-800.webp 800w, assets/photos/hero-1-1600.webp 1600w" sizes="100vw">
+        <img src="assets/photos/hero-1-1600.jpg" srcset="assets/photos/hero-1-800.jpg 800w, assets/photos/hero-1-1600.jpg 1600w" sizes="100vw" width="1600" height="1067" alt="A large group of students and staff gathered outside their school, smiling and waving" fetchpriority="high" decoding="async">
       </picture>
     </figure>
-    <figure class="hero-slide" data-caption="Northern Vietnam" style="--pos: 68% 30%">
+    <figure class="hero-slide" style="--pos: 68% 30%">
       <picture>
-        <source type="image/webp" srcset="assets/photos/flower-crowns-800.webp 800w, assets/photos/flower-crowns-1600.webp 1600w" sizes="100vw">
-        <img src="assets/photos/flower-crowns-1600.jpg" srcset="assets/photos/flower-crowns-800.jpg 800w, assets/photos/flower-crowns-1600.jpg 1600w" sizes="100vw" width="1600" height="900" alt="Three smiling girls wearing crowns of wildflowers, carrying baskets of flowers on a mountain road" loading="lazy" decoding="async">
+        <source type="image/webp" srcset="assets/photos/hero-2-800.webp 800w, assets/photos/hero-2-1600.webp 1600w" sizes="100vw">
+        <img src="assets/photos/hero-2-1600.jpg" srcset="assets/photos/hero-2-800.jpg 800w, assets/photos/hero-2-1600.jpg 1600w" sizes="100vw" width="1600" height="900" alt="Three smiling girls wearing crowns of wildflowers, carrying baskets of flowers on a mountain road" loading="lazy" decoding="async">
       </picture>
     </figure>
-    <figure class="hero-slide" data-caption="Hong Kong" style="--pos: 50% 55%">
+    <figure class="hero-slide" style="--pos: 50% 55%">
       <picture>
-        <source type="image/webp" srcset="assets/photos/street-chinese-signs-540.webp 540w" sizes="100vw">
-        <img src="assets/photos/street-chinese-signs-540.jpg" width="540" height="359" alt="A crowded city street lined with Chinese-language shop signs" loading="lazy" decoding="async">
+        <source type="image/webp" srcset="assets/photos/hero-3-540.webp 540w" sizes="100vw">
+        <img src="assets/photos/hero-3-540.jpg" width="540" height="359" alt="A crowded city street lined with colorful shop signs" loading="lazy" decoding="async">
       </picture>
     </figure>
-    <figure class="hero-slide" data-caption="Bengaluru, India" style="--pos: 55% 55%">
+    <figure class="hero-slide" style="--pos: 55% 55%">
       <picture>
-        <source type="image/webp" srcset="assets/photos/bengaluru-street-800.webp 800w, assets/photos/bengaluru-street-1500.webp 1500w" sizes="100vw">
-        <img src="assets/photos/bengaluru-street-1500.jpg" srcset="assets/photos/bengaluru-street-800.jpg 800w, assets/photos/bengaluru-street-1500.jpg 1500w" sizes="100vw" width="1500" height="999" alt="A busy shopping street in Bengaluru, India, packed with shoppers and scooters under festival lights" loading="lazy" decoding="async">
+        <source type="image/webp" srcset="assets/photos/hero-4-800.webp 800w, assets/photos/hero-4-1500.webp 1500w" sizes="100vw">
+        <img src="assets/photos/hero-4-1500.jpg" srcset="assets/photos/hero-4-800.jpg 800w, assets/photos/hero-4-1500.jpg 1500w" sizes="100vw" width="1500" height="999" alt="A busy shopping street packed with shoppers and scooters under festival lights" loading="lazy" decoding="async">
       </picture>
     </figure>
   </div>
 
   <section class="hero hero--slides on-dark" id="top" aria-labelledby="hero-title">
-    <!-- Window onto the photos (phones) + place caption and pause control -->
+    <!-- Window onto the photos (phones) + pause control -->
     <div class="hero__stage">
       <div class="hero__controls">
-        <p class="hero__caption" aria-hidden="true" data-hero-caption>Phnom Penh, Cambodia</p>
         <button class="hero__toggle" type="button" data-hero-toggle data-paused="false">
           <svg class="icon-pause" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg>
           <svg class="icon-play" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>

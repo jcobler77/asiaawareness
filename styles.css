@@ -299,13 +299,6 @@ a:hover { color: var(--color-link-hover); }
   position: absolute; right: var(--gutter); bottom: var(--space-sm);
   display: flex; align-items: center; gap: var(--space-2xs);
 }
-.hero__caption {
-  margin: 0; padding: var(--space-3xs) var(--space-xs);
-  background: var(--color-dark); color: var(--color-on-dark);
-  border-radius: var(--radius-pill); font-size: var(--fs-xs); font-weight: var(--fw-semibold);
-  letter-spacing: 0.04em; transition: opacity 400ms ease;
-}
-.hero__caption.is-changing { opacity: 0; }
 .hero__toggle {
   display: grid; place-items: center; width: 44px; height: 44px; padding: 0; cursor: pointer;
   background: var(--color-dark); color: var(--color-on-dark);
