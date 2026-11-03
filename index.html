@@ -59,7 +59,7 @@ img,svg{max-width:100%;height:auto;display:block}
 .hero{background:var(--color-dark);color:var(--color-on-dark);padding-block:64px}
 .hero h1{font-family:var(--font-display);color:var(--color-on-dark);font-size:clamp(2.75rem,1.6rem + 4.6vw,4.5rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 1rem}
 .hero__theme{font-family:var(--font-display);font-weight:700;font-size:clamp(1.75rem,1.4rem + 1.4vw,2.25rem);line-height:1.15;color:var(--color-on-dark-display)}
-.hero__mark{display:none}
+.hero-slides{position:fixed;inset:0 0 auto 0;height:calc(4rem + 62vw);z-index:-1;margin:0;background:var(--color-dark)}.hero-slide{position:absolute;inset:0;margin:0;opacity:0}.hero-slide.is-active{opacity:1}.hero-slide img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,center)}.hero--slides{background:transparent;padding:0}.hero__stage{height:62vw;min-height:200px}.hero__panel{background:var(--color-dark);padding-block:48px}.hero__controls{display:none}@media (min-width:60em){.hero-slides{height:100vh}.hero__stage{height:0;min-height:0}.hero__panel{background:transparent}.hero--slides{min-height:min(88vh,820px);display:flex;align-items:center}}
 .hero__meta{list-style:none;padding:0}
 .hero__meta svg{width:1.25rem}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.75rem 1.5rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid transparent}
@@ -104,9 +104,49 @@ img,svg{max-width:100%;height:auto;display:block}
 <main id="main">
 
   <!-- 1. HERO ============================================================ -->
-  <section class="hero on-dark" id="top" aria-labelledby="hero-title">
+  <!-- Rotating hero photos. Fixed behind the page: the sections below scroll up over them.
+       Each slide: data-caption is the place label shown on screen; --pos sets the crop focus. -->
+  <div class="hero-slides" data-hero-slides>
+    <figure class="hero-slide is-active" data-caption="Phnom Penh, Cambodia" style="--pos: 62% 72%">
+      <picture>
+        <source type="image/webp" srcset="assets/photos/new-life-center-800.webp 800w, assets/photos/new-life-center-1600.webp 1600w" sizes="100vw">
+        <img src="assets/photos/new-life-center-1600.jpg" srcset="assets/photos/new-life-center-800.jpg 800w, assets/photos/new-life-center-1600.jpg 1600w" sizes="100vw" width="1600" height="1067" alt="Students and staff of the New Life Educational Center gathered outside their campus in Phnom Penh, Cambodia" fetchpriority="high" decoding="async">
+      </picture>
+    </figure>
+    <figure class="hero-slide" data-caption="Northern Vietnam" style="--pos: 68% 30%">
+      <picture>
+        <source type="image/webp" srcset="assets/photos/flower-crowns-800.webp 800w, assets/photos/flower-crowns-1600.webp 1600w" sizes="100vw">
+        <img src="assets/photos/flower-crowns-1600.jpg" srcset="assets/photos/flower-crowns-800.jpg 800w, assets/photos/flower-crowns-1600.jpg 1600w" sizes="100vw" width="1600" height="900" alt="Three smiling girls wearing crowns of wildflowers, carrying baskets of flowers on a mountain road" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    <figure class="hero-slide" data-caption="Hong Kong" style="--pos: 50% 55%">
+      <picture>
+        <source type="image/webp" srcset="assets/photos/street-chinese-signs-540.webp 540w" sizes="100vw">
+        <img src="assets/photos/street-chinese-signs-540.jpg" width="540" height="359" alt="A crowded city street lined with Chinese-language shop signs" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    <figure class="hero-slide" data-caption="Bengaluru, India" style="--pos: 55% 55%">
+      <picture>
+        <source type="image/webp" srcset="assets/photos/bengaluru-street-800.webp 800w, assets/photos/bengaluru-street-1500.webp 1500w" sizes="100vw">
+        <img src="assets/photos/bengaluru-street-1500.jpg" srcset="assets/photos/bengaluru-street-800.jpg 800w, assets/photos/bengaluru-street-1500.jpg 1500w" sizes="100vw" width="1500" height="999" alt="A busy shopping street in Bengaluru, India, packed with shoppers and scooters under festival lights" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+  </div>
+
+  <section class="hero hero--slides on-dark" id="top" aria-labelledby="hero-title">
+    <!-- Window onto the photos (phones) + place caption and pause control -->
+    <div class="hero__stage">
+      <div class="hero__controls">
+        <p class="hero__caption" aria-hidden="true" data-hero-caption>Phnom Penh, Cambodia</p>
+        <button class="hero__toggle" type="button" data-hero-toggle data-paused="false">
+          <svg class="icon-pause" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg>
+          <svg class="icon-play" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+          <span class="visually-hidden" data-hero-toggle-label>Pause photo slideshow</span>
+        </button>
+      </div>
+    </div>
+    <div class="hero__panel">
     <div class="container">
-      <img class="hero__mark" src="assets/brand/aac-mark-reversed.svg" alt="" width="256" height="256">
       <div class="hero__content">
       <p class="eyebrow">Living Water Foursquare &amp; FMI Asia present</p>
       <h1 id="hero-title">Asia Awareness Conference</h1>
@@ -131,6 +171,7 @@ img,svg{max-width:100%;height:auto;display:block}
       <p class="hero__host">Hosted by Living Water Foursquare Church in partnership with
         <a href="https://www.asiapacificmissions.org" rel="noopener">Foursquare Missions International Asia</a>.</p>
       </div>
+    </div>
     </div>
   </section>
 

@@ -87,6 +87,29 @@ Brand contrast rules the stylesheet follows:
 
 White text on ember (2.6:1) is never used.
 
+## Hero photos
+
+The hero crossfades through four photos every 7 seconds, on a layer fixed behind the page. The hero
+is transparent, and every section after it has a solid background, so the page scrolls up over the
+photos. There is a pause/play button. The slideshow starts paused for people who set "reduce
+motion", and it stops while the tab is hidden or the hero is scrolled out of view.
+
+| File (`assets/photos/`) | Caption on screen | Source |
+|---|---|---|
+| `new-life-center-*` | Phnom Penh, Cambodia | Living Water partnership photo (Cambodia Vision site) |
+| `flower-crowns-*` | Northern Vietnam | supplied, **confirm location and license** |
+| `street-chinese-signs-540` | Hong Kong | supplied, **confirm location and license**; only 540px wide, so it looks soft on large screens |
+| `bengaluru-street-*` | Bengaluru, India | supplied, **confirm license** |
+
+**To add, remove or reorder a photo:** in `index.html`, each photo is a `<figure class="hero-slide">`
+inside `.hero-slides`.
+- Set the on-screen place label with `data-caption`.
+- Set the crop focus with `style="--pos: X% Y%"`.
+- Write real `alt` text.
+- Only the first slide should have `class="... is-active"` and `fetchpriority="high"`. The rest use `loading="lazy"`.
+
+Export photos at about 1600px wide, as JPG and WebP, around 100–300 KB each.
+
 ---
 
 ## Placeholder checklist
@@ -128,6 +151,12 @@ Everything below needs real content before launch. Search the files for `PLACEHO
 ### Meta, sharing & icons (`<head>`)
 - [ ] **Canonical / `og:url`:** currently `https://jcobler77.github.io/asiaawareness/`. Change it to the custom domain once it is live.
 - [ ] **`og:image` / `twitter:image`:** update to the custom domain when it is live. (The image itself is final.)
+
+### Photos
+- [ ] **Hero photo licenses and credits:** confirm each supplied photo is licensed for web use, and add a credit line if its license requires one.
+- [ ] **Hero photo captions:** confirm "Northern Vietnam" and "Hong Kong".
+- [ ] **Replace the Hong Kong photo with a larger version** (at least 1600px wide) if you can find one.
+- [ ] **Permission:** confirm you have permission to feature the photo of children (flower crowns).
 
 ### Copy to review
 - [ ] **Why Asia paragraphs:** confirm the claims and wording (India's unreached people groups, the Khmer among the 100 largest unreached people groups, Philippines and the global Foursquare family as senders).

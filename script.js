@@ -58,6 +58,71 @@
     requestAnimationFrame(function () { target.focus({ preventScroll: true }); });
   });
 
+  /* Rotating hero photos -------------------------------------------------
+     Crossfades every 7s. Has a pause/play button (WCAG 2.2.2), starts paused
+     for people who prefer reduced motion, and stops while the tab is hidden
+     or the hero has scrolled out of view. */
+  var slideLayer = document.querySelector('[data-hero-slides]');
+  var slides = slideLayer ? Array.prototype.slice.call(slideLayer.querySelectorAll('.hero-slide')) : [];
+  var caption = document.querySelector('[data-hero-caption]');
+  var toggleBtn = document.querySelector('[data-hero-toggle]');
+  var toggleLabel = document.querySelector('[data-hero-toggle-label]');
+  if (slides.length > 1 && toggleBtn) {
+    var INTERVAL = 7000;
+    var current = 0;
+    var timer = null;
+    var userPaused = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var heroVisible = true;
+
+    var show = function (index) {
+      slides[current].classList.remove('is-active');
+      current = (index + slides.length) % slides.length;
+      var slide = slides[current];
+      // Make sure a lazy image is fetched before it fades in.
+      var img = slide.querySelector('img');
+      if (img && img.loading === 'lazy') img.loading = 'eager';
+      slide.classList.add('is-active');
+      if (caption) {
+        caption.classList.add('is-changing');
+        setTimeout(function () {
+          caption.textContent = slide.getAttribute('data-caption') || '';
+          caption.classList.remove('is-changing');
+        }, 400);
+      }
+      // Warm up the next image so the following fade is smooth.
+      var next = slides[(current + 1) % slides.length].querySelector('img');
+      if (next && next.loading === 'lazy') next.loading = 'eager';
+    };
+
+    var stop = function () { clearInterval(timer); timer = null; };
+    var start = function () {
+      if (timer || userPaused || !heroVisible || document.hidden) return;
+      timer = setInterval(function () { show(current + 1); }, INTERVAL);
+    };
+    var syncButton = function () {
+      toggleBtn.setAttribute('data-paused', String(userPaused));
+      if (toggleLabel) toggleLabel.textContent = userPaused ? 'Play photo slideshow' : 'Pause photo slideshow';
+    };
+
+    toggleBtn.addEventListener('click', function () {
+      userPaused = !userPaused;
+      syncButton();
+      if (userPaused) stop(); else { show(current + 1); start(); }
+    });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stop(); else start();
+    });
+    var hero = document.getElementById('top');
+    if (hero && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        heroVisible = entries[0].isIntersecting;
+        if (heroVisible) start(); else stop();
+      }).observe(hero);
+    }
+    syncButton();
+    start();
+  }
+
   /* Footer year --------------------------------------------------------- */
   var year = document.querySelector('[data-year]');
   if (year) year.textContent = String(new Date().getFullYear());

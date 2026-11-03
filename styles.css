@@ -242,7 +242,7 @@ a:hover { color: var(--color-link-hover); }
 /* ==========================================================================
    Sections
    ========================================================================== */
-.section { padding-block: var(--space-2xl); }
+.section { padding-block: var(--space-2xl); background: var(--color-bg); position: relative; } /* solid, so it scrolls over the fixed hero photos */
 .section--alt { background: var(--color-surface); }
 .section__header { max-width: var(--container-narrow); margin-bottom: var(--space-xl); }
 .section__header--center { margin-inline: auto; text-align: center; }
@@ -274,14 +274,68 @@ a:hover { color: var(--color-link-hover); }
   font-family: var(--font-display); font-size: var(--fs-xl); font-weight: var(--fw-bold); line-height: var(--lh-heading);
   color: var(--color-on-dark-display); margin-bottom: var(--space-lg);
 }
-.hero__mark { display: none; }
-@media (min-width: 60em) {
-  .hero__content { max-width: 40rem; }
-  .hero__mark {
-    display: block; position: absolute; right: var(--gutter); top: 50%; transform: translateY(-50%);
-    width: min(34vw, 400px); opacity: 0.95;
-  }
+/* --- Rotating hero photos ----------------------------------------------
+   The slides sit in a fixed layer behind the page. The hero is transparent,
+   so the photos show through it; every section after it has a solid
+   background and scrolls up over the photos.
+   Contrast: text never sits on a photo. On phones the text is on a solid
+   evergreen panel below a photo "window". On desktop a gradient is fully
+   solid evergreen across the text column (--hero-solid-end) and only fades
+   to the right of it. */
+.hero-slides {
+  position: fixed; inset: 0 0 auto 0; z-index: -1; margin: 0;
+  height: calc(4rem + 62vw);                  /* header + photo window on phones */
+  background: var(--color-dark);
 }
+.hero-slide { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity 1.6s ease; }
+.hero-slide.is-active { opacity: 1; }
+.hero-slide img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, center); }
+
+.hero--slides { background: transparent; padding: 0; overflow: visible; }
+.hero__stage { position: relative; height: 62vw; min-height: 200px; }
+.hero__panel { background: var(--color-dark); padding-block: var(--space-xl) var(--space-2xl); }
+
+.hero__controls {
+  position: absolute; right: var(--gutter); bottom: var(--space-sm);
+  display: flex; align-items: center; gap: var(--space-2xs);
+}
+.hero__caption {
+  margin: 0; padding: var(--space-3xs) var(--space-xs);
+  background: var(--color-dark); color: var(--color-on-dark);
+  border-radius: var(--radius-pill); font-size: var(--fs-xs); font-weight: var(--fw-semibold);
+  letter-spacing: 0.04em; transition: opacity 400ms ease;
+}
+.hero__caption.is-changing { opacity: 0; }
+.hero__toggle {
+  display: grid; place-items: center; width: 44px; height: 44px; padding: 0; cursor: pointer;
+  background: var(--color-dark); color: var(--color-on-dark);
+  border: 2px solid var(--color-on-dark); border-radius: var(--radius-pill);
+}
+.hero__toggle:hover { background: var(--color-primary-hover); }
+.hero__toggle svg { width: 18px; height: 18px; }
+.hero__toggle .icon-play { display: none; }
+.hero__toggle[data-paused="true"] .icon-pause { display: none; }
+.hero__toggle[data-paused="true"] .icon-play { display: block; }
+html:not(.js) .hero__controls { display: none; }
+
+@media (min-width: 60em) {
+  :root { --hero-solid-end: calc(max(var(--gutter), (100vw - var(--container)) / 2 + var(--gutter)) + 34rem + 24px); }
+  .hero-slides { height: 100vh; height: 100lvh; }
+  .hero-slides::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg,
+      var(--color-dark) 0, var(--color-dark) var(--hero-solid-end),
+      rgba(30, 77, 71, 0.55) calc(var(--hero-solid-end) + 10vw),
+      rgba(30, 77, 71, 0.05) 100%);
+  }
+  .hero--slides { position: relative; display: flex; align-items: center; min-height: min(88vh, 820px); }
+  .hero__stage { position: absolute; inset: 0; z-index: 1; height: auto; min-height: 0; pointer-events: none; }
+  .hero__controls { pointer-events: auto; bottom: var(--space-lg); right: max(var(--gutter), (100vw - var(--container)) / 2 + var(--gutter)); }
+  .hero__panel { position: relative; width: 100%; background: transparent; padding-block: var(--space-2xl); }
+  .hero__content { max-width: 34rem; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-slide { transition: none; } }
+
 .hero__meta { list-style: none; padding: 0; margin: 0 0 var(--space-lg); display: grid; gap: var(--space-xs); }
 .hero__meta li { display: flex; gap: var(--space-xs); align-items: flex-start; }
 .hero__meta svg { flex: none; width: 1.25rem; margin-top: 0.2em; }
@@ -431,6 +485,8 @@ a:hover { color: var(--color-link-hover); }
 @media (min-width: 48em) { .sticky-cta { display: none; } }
 
 @media print {
+  .hero-slides, .hero__stage { display: none !important; }
+  .hero__panel { background: none !important; }
   .site-header, .sticky-cta, .cta-group, .nav-toggle { display: none !important; }
   body { padding-bottom: 0; }
   .faq details { display: block; }
