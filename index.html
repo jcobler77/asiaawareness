@@ -5,12 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Asia Awareness Conference 2027 · Together on Mission · Living Water Foursquare</title>
 <meta name="description" content="Asia Awareness Conference, April 2027 at Living Water Foursquare in Olympia, WA, in partnership with Foursquare Missions International Asia. Together on Mission: pastors, church members and missionaries coming together for the unreached of Asia.">
-<meta name="theme-color" content="#1f2b33">
+<meta name="theme-color" content="#1E4D47">
 <!-- PLACEHOLDER: set the final public URL -->
 <link rel="canonical" href="https://jcobler77.github.io/asiaawareness/">
 
-<!-- Favicon (PLACEHOLDER) -->
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="assets/brand/aac-app-icon.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/brand/favicon-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/brand/aac-app-icon-180.png">
+
+<!-- Brand fonts: Bricolage Grotesque (display) + Source Sans 3 (body). Non-blocking, swap. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Source+Sans+3:ital,wght@0,400..700;1,400&amp;display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Source+Sans+3:ital,wght@0,400..700;1,400&amp;display=swap"></noscript>
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -33,28 +41,29 @@
 <!-- Critical CSS: just enough to paint the header and hero before styles.css arrives.
      Color values mirror the [critical] tokens in styles.css :root. Keep them in sync. -->
 <style>
-:root{--color-bg:#fff;--color-text:#1d2327;--color-primary:#2f4858;--color-dark:#1f2b33;--color-on-dark:#fff;--color-on-dark-muted:#cfd7dd;--color-dark-button:#fff;--color-on-dark-button:#1f2b33;--color-focus:#1a6ed8;--color-focus-on-dark:#ffd34d;--font-sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+:root{--color-bg:#F8F5EF;--color-text:#1C2421;--color-heading:#1E4D47;--color-primary:#1E4D47;--color-cta:#E8894A;--color-on-cta:#1C2421;--color-dark:#1E4D47;--color-on-dark:#F8F5EF;--color-on-dark-muted:#F6DCC4;--color-on-dark-display:#E8894A;--color-focus:#2F6E8A;--color-focus-on-dark:#F6DCC4;--font-sans:"Source Sans 3","Source Sans Pro","Helvetica Neue",Arial,sans-serif;--font-display:"Bricolage Grotesque","Avenir Next","Segoe UI",sans-serif}
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;font-family:var(--font-sans);font-size:1.0625rem;line-height:1.6;color:var(--color-text);background:var(--color-bg)}
+body{margin:0;font-family:var(--font-sans);font-size:1.125rem;line-height:1.55;color:var(--color-text);background:var(--color-bg)}
 img,svg{max-width:100%;height:auto;display:block}
-.container{width:100%;max-width:72rem;margin-inline:auto;padding-inline:1rem}
+.container{width:100%;max-width:1200px;margin-inline:auto;padding-inline:16px}
 .visually-hidden{position:absolute!important;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .skip-link{position:absolute;left:1rem;top:-4rem}
 .site-header{position:sticky;top:0;z-index:50;background:var(--color-dark);color:var(--color-on-dark)}
 .site-header__inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;min-height:4rem}
-.brand{flex:0 1 auto;min-width:0;color:var(--color-on-dark);text-decoration:none;font-weight:700}
-.brand small{display:block;font-weight:400;font-size:.8125rem;color:var(--color-on-dark-muted)}
+.brand{flex:0 1 auto;min-width:0;display:block;padding-block:8px}
+.brand img{width:180px}
 .nav-toggle{display:none}
-@media (max-width:47.99em){.js .site-nav{display:none}.brand{flex:1 1 0}}
+@media (max-width:47.99em){.js .site-nav{display:none}}
 .site-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem 1rem}
 .site-nav a{color:var(--color-on-dark)}
-.hero{background:var(--color-dark);color:var(--color-on-dark);padding-block:3.5rem}
-.hero h1{font-size:clamp(2.25rem,1.4rem + 4vw,4rem);line-height:1.15;margin:0 0 1rem}
-.hero__theme{font-size:clamp(1.375rem,1.1rem + 1vw,1.75rem);color:var(--color-on-dark-muted);font-style:italic}
+.hero{background:var(--color-dark);color:var(--color-on-dark);padding-block:64px}
+.hero h1{font-family:var(--font-display);color:var(--color-on-dark);font-size:clamp(2.75rem,1.6rem + 4.6vw,4.5rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 1rem}
+.hero__theme{font-family:var(--font-display);font-weight:700;font-size:clamp(1.75rem,1.4rem + 1.4vw,2.25rem);line-height:1.15;color:var(--color-on-dark-display)}
+.hero__mark{display:none}
 .hero__meta{list-style:none;padding:0}
 .hero__meta svg{width:1.25rem}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.75rem 1.5rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid transparent}
-.on-dark .btn--primary{background:var(--color-dark-button);color:var(--color-on-dark-button)}
+.btn--primary{background:var(--color-cta);color:var(--color-on-cta)}
 .on-dark .btn--outline{color:var(--color-on-dark);border-color:currentColor}
 .sticky-cta{display:none}
 </style>
@@ -72,8 +81,7 @@ img,svg{max-width:100%;height:auto;display:block}
 <header class="site-header on-dark">
   <div class="container site-header__inner">
     <a class="brand" href="#top">
-      Asia Awareness Conference
-      <small>Living Water Foursquare · April 2027</small>
+      <img src="assets/brand/aac-horizontal-reversed.svg" alt="Asia Awareness Conference, April 2027: back to top" width="1082" height="266">
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -98,6 +106,8 @@ img,svg{max-width:100%;height:auto;display:block}
   <!-- 1. HERO ============================================================ -->
   <section class="hero on-dark" id="top" aria-labelledby="hero-title">
     <div class="container">
+      <img class="hero__mark" src="assets/brand/aac-mark-reversed.svg" alt="" width="256" height="256">
+      <div class="hero__content">
       <p class="eyebrow">Living Water Foursquare &amp; FMI Asia present</p>
       <h1 id="hero-title">Asia Awareness Conference</h1>
       <p class="hero__theme">Together on Mission</p>
@@ -120,6 +130,7 @@ img,svg{max-width:100%;height:auto;display:block}
 
       <p class="hero__host">Hosted by Living Water Foursquare Church in partnership with
         <a href="https://www.asiapacificmissions.org" rel="noopener">Foursquare Missions International Asia</a>.</p>
+      </div>
     </div>
   </section>
 
@@ -299,7 +310,7 @@ img,svg{max-width:100%;height:auto;display:block}
             <li>Dinner included with the $20 registration</li>
           </ul>
           <!-- PLACEHOLDER: Planning Center registration URL -->
-          <a class="btn btn--outline btn--block" href="https://PLANNING-CENTER-URL.example/evening" rel="noopener">Register for Evening Sessions</a>
+          <a class="btn btn--secondary btn--block" href="https://PLANNING-CENTER-URL.example/evening" rel="noopener">Register for Evening Sessions</a>
         </article>
       </div>
       <p class="reg-footnote">Registration is handled through Planning Center. Cost should never keep you away. If it's a barrier, <a href="mailto:EMAIL@example.org">contact us</a>.</p>
@@ -412,12 +423,13 @@ img,svg{max-width:100%;height:auto;display:block}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <!-- PLACEHOLDER: replace with real logo files -->
+        <img class="footer-brand" src="assets/brand/aac-stacked-reversed.svg" alt="Asia Awareness Conference, April 2027: Together on Mission" width="872" height="544" loading="lazy" decoding="async">
+        <!-- PLACEHOLDER: replace with real Living Water and FMI Asia logo files -->
         <div class="footer-logos">
           <img src="assets/logo-living-water-placeholder.svg" alt="Living Water Foursquare Church" width="240" height="72" loading="lazy" decoding="async">
           <img src="assets/logo-fmi-asia-placeholder.svg" alt="Foursquare Missions International Asia" width="240" height="72" loading="lazy" decoding="async">
         </div>
-        <p>Asia Awareness Conference · Together on Mission<br>April 2027 · Olympia, Washington</p>
+        <p>Hosted by Living Water Foursquare Church, Olympia, Washington, with Foursquare Missions International Asia.</p>
       </div>
       <div>
         <h2>Contact</h2>

@@ -13,8 +13,8 @@ Plain HTML, CSS and vanilla JS. No framework, no build step, no external librari
 ├── script.js       mobile menu, sticky Register bar, focus handling, footer year
 ├── README.md       this file
 └── assets/
-    ├── favicon.svg                         PLACEHOLDER
-    ├── og-image.png                        PLACEHOLDER (1200×630 share image)
+    ├── brand/                              logos, favicons (final)
+    ├── og-image.png                        share image (1200×630)
     ├── logo-living-water-placeholder.svg   PLACEHOLDER
     ├── logo-fmi-asia-placeholder.svg       PLACEHOLDER
     └── speaker-placeholder.svg             PLACEHOLDER
@@ -55,29 +55,37 @@ at any URL. The page sets its own global styles (`body`, headings, links). If yo
 an existing site template instead of serving it as a standalone page, check for style collisions
 with the site's CSS.
 
-## Swapping in the brand
+## Brand
 
-All colors, type, spacing and radii are CSS custom properties at the top of `styles.css`.
-The current values are neutral placeholders.
+The page uses the Asia Awareness Conference brand tokens v1.0 ("Together on Mission").
+
+- **Tokens:** the brand palette (`--aac-*`) and the page's design tokens live in `:root` at the top of `styles.css`.
+- **Fonts:** Bricolage Grotesque (headings) and Source Sans 3 (body) load from Google Fonts in `<head>`, without blocking the first paint. If they fail to load, system fonts take over.
+- **Logos and icons:** in `assets/brand/`.
+  - `aac-horizontal-reversed.svg`: header.
+  - `aac-mark-reversed.svg`: large mark in the desktop hero.
+  - `aac-stacked-reversed.svg`: footer.
+  - `aac-app-icon.svg`, `favicon-64.png` and `aac-app-icon-180.png`: favicons.
+- **Share image:** `assets/og-image.png` is the stacked logo on evergreen, 1200×630.
 
 **One catch:** `index.html` has a small inline critical-CSS block in `<head>` so the header and hero
-render before `styles.css` loads. It repeats the tokens marked `[critical]` in `styles.css`. When
-you change those colors (or the font stack), update the `:root` line in the inline `<style>` block too.
+render before `styles.css` loads. It repeats the tokens marked `[critical]` in `styles.css`. If brand
+colors or fonts change, update the `:root` line in the inline `<style>` block too.
 
-If the brand uses a web font, add it in `<head>` and set `--font-sans` / `--font-display` (and the
-inline `--font-sans`).
+Brand contrast rules the stylesheet follows:
 
-Current placeholder palette, all checked against WCAG 2.1 AA:
-
-| Token | Value | Contrast |
+| Pairing | Ratio | Use |
 |---|---|---|
-| `--color-text` on `--color-bg` | #1d2327 / #fff | 15.9:1 |
-| `--color-text-muted` on `--color-surface` | #4b545c / #f4f5f6 | 7.1:1 |
-| `--color-primary` on white (and white on primary) | #2f4858 | 9.6:1 |
-| `--color-accent` on `--color-accent-soft` | #8c5a1e / #f3ebe0 | 4.9:1 |
-| `--color-on-dark-muted` on `--color-dark` | #cfd7dd / #1f2b33 | 9.9:1 |
+| Ink on linen | 14.6:1 | body text |
+| Evergreen on linen | 8.7:1 | headings |
+| Stone on linen | 5.8:1 | secondary text |
+| Ember-deep on linen | 5.2:1 | links, eyebrows |
+| Ink on ember | 6.1:1 | primary buttons |
+| Linen / dawn on evergreen | 8.7 / 7.2:1 | text on dark bands |
+| Ember on evergreen | 3.7:1 | **large text only** (hero theme line) |
+| Evergreen on dawn | 7.2:1 | badges and links on dawn panels (ember-deep on dawn is only 4.3:1, so it isn't used) |
 
-Re-check contrast whenever you change these.
+White text on ember (2.6:1) is never used.
 
 ---
 
@@ -112,16 +120,14 @@ Everything below needs real content before launch. Search the files for `PLACEHO
 
 ### Footer & contact
 - [ ] **Contact email:** `EMAIL@example.org` (appears in footer, registration footnote, host-home callout and FAQ).
-- [ ] **Living Water Foursquare logo:** replace `assets/logo-living-water-placeholder.svg` (works best as white/light art on the dark footer).
+- [ ] **Living Water Foursquare logo:** replace `assets/logo-living-water-placeholder.svg`. Use light/white art, because it sits on the evergreen footer. (The brand kit only had conference logos.)
 - [ ] **FMI Asia logo:** replace `assets/logo-fmi-asia-placeholder.svg`.
 - [ ] **Social URLs:** Facebook, Instagram, YouTube (`…/PLACEHOLDER`). Update the `aria-label`s if the accounts belong to FMI or the conference.
 - [ ] **Partner links:** currently https://www.asiapacificmissions.org and https://www.foursquaremissions.org. Confirm these are the links you want.
 
 ### Meta, sharing & icons (`<head>`)
 - [ ] **Canonical / `og:url`:** currently `https://jcobler77.github.io/asiaawareness/`. Change it to the custom domain once it is live.
-- [ ] **`og:image` / `twitter:image`:** absolute URL to the final share image. Replace `assets/og-image.png` (1200×630) with a designed image.
-- [ ] **Favicon:** replace `assets/favicon.svg` (and add PNG / apple-touch-icon sizes if wanted).
-- [ ] **`theme-color`:** set to the final dark brand color.
+- [ ] **`og:image` / `twitter:image`:** update to the custom domain when it is live. (The image itself is final.)
 
 ### Copy to review
 - [ ] **Why Asia paragraphs:** confirm the claims and wording (India's unreached people groups, the Khmer among the 100 largest unreached people groups, Philippines and the global Foursquare family as senders).
