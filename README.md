@@ -28,6 +28,8 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000/`.
 
+The deploy workflow stamps the `styles.css` and `script.js` links in `index.html` with a hash of each file (`?v=...`). Browsers and the Pages CDN therefore pick up changes on the next load, with no manual cache-busting needed.
+
 ## Publish (GitHub Pages)
 
 `.github/workflows/deploy.yml` publishes the site on every push to `main`.

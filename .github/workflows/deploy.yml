@@ -24,6 +24,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Cache-bust CSS and JS
+        # Stamps styles.css / script.js links in index.html with a hash of each file,
+        # so browsers and the Pages CDN fetch the new version after every deploy.
+        run: |
+          cv=$(sha1sum styles.css | cut -c1-8)
+          jv=$(sha1sum script.js | cut -c1-8)
+          sed -i -E "s#styles\.css(\?v=[a-z0-9]+)?\"#styles.css?v=$cv\"#g; s#script\.js(\?v=[a-z0-9]+)?\"#script.js?v=$jv\"#g" index.html
+          grep -n 'styles.css?v=\|script.js?v=' index.html
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
