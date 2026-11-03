@@ -48,6 +48,9 @@
   --color-on-dark: var(--aac-linen);      /* [critical] 8.7:1 */
   --color-on-dark-muted: var(--aac-dawn); /* [critical] 7.2:1 */
   --color-on-dark-display: var(--aac-ember); /* [critical] large text only (3.7:1) */
+  --color-dark-deep: #14342F;              /* scroll shade over the hero photos */
+  --color-panel: rgba(20, 52, 47, 0.82);   /* section panels over the photos */
+  --color-panel-alt: rgba(30, 77, 71, 0.88);
 
   /* Focus ring */
   --color-focus: var(--aac-sound);        /* [critical] */
@@ -242,8 +245,38 @@ a:hover { color: var(--color-link-hover); }
 /* ==========================================================================
    Sections
    ========================================================================== */
-.section { padding-block: var(--space-2xl); background: var(--color-bg); position: relative; } /* solid, so it scrolls over the fixed hero photos */
-.section--alt { background: var(--color-surface); }
+/* Sections are translucent dark panels over the fixed hero photos, with a
+   light text scheme. Worst case (pure white photo pixel, no shade):
+   .section     rgba(20,52,47,.82) -> linen 7.0:1, dawn 5.7:1
+   .section--alt rgba(30,77,71,.88) -> linen 6.2:1, dawn 5.0:1
+   Ember-deep and stone are never used directly on these panels. */
+.section {
+  position: relative; padding-block: var(--space-2xl);
+  background: var(--color-panel);
+  --color-text: var(--aac-linen);
+  --color-heading: var(--aac-linen);
+  --color-text-muted: var(--aac-dawn);
+  --color-link: var(--aac-dawn);
+  --color-link-hover: var(--aac-white);
+  --color-accent: var(--aac-dawn);
+  --color-border: rgba(248, 245, 239, 0.28);
+  --color-focus: var(--aac-dawn);
+  color: var(--color-text);
+}
+.section--alt { background: var(--color-panel-alt); }
+
+/* White surfaces inside sections switch back to the light (default) scheme. */
+.card, .day, .speaker, .hotel, .callout, .badge {
+  --color-text: var(--aac-ink);
+  --color-heading: var(--aac-evergreen);
+  --color-text-muted: var(--aac-stone);
+  --color-link: var(--aac-ember-deep);
+  --color-link-hover: #8a3c18;
+  --color-accent: var(--aac-ember-deep);
+  --color-border: var(--aac-mist);
+  --color-focus: var(--aac-sound);
+  color: var(--color-text);
+}
 .section__header { max-width: var(--container-narrow); margin-bottom: var(--space-xl); }
 .section__header--center { margin-inline: auto; text-align: center; }
 .section__intro { font-size: var(--fs-md); color: var(--color-text-muted); margin: 0; }
@@ -275,19 +308,32 @@ a:hover { color: var(--color-link-hover); }
   color: var(--color-on-dark-display); margin-bottom: var(--space-lg);
 }
 /* --- Rotating hero photos ----------------------------------------------
-   The slides sit in a fixed layer behind the page. The hero is transparent,
-   so the photos show through it; every section after it has a solid
-   background and scrolls up over the photos.
-   Contrast: text never sits on a photo. On phones the text is on a solid
-   evergreen panel below a photo "window". On desktop a gradient is fully
-   solid evergreen across the text column (--hero-solid-end) and only fades
-   to the right of it. */
+   The slides sit in a fixed layer behind the whole page. The hero is
+   transparent; every section after it is a translucent dark green panel, so
+   the photos stay faintly visible as the page scrolls over them. A shade
+   layer (.hero-shade, driven by --shade from script.js) darkens the photos
+   further as you scroll past the hero.
+   Contrast: text never sits directly on a photo.
+   - Hero, phones: solid evergreen panel below a photo "window".
+   - Hero, desktop: the gradient is solid evergreen across the text column
+     (--hero-solid-end) and only fades to the right of it.
+   - Sections: panel opacity is set so light text passes AA even over a pure
+     white photo with no extra shade (see the section scheme below). */
 .hero-slides {
-  position: fixed; inset: 0 0 auto 0; z-index: -1; margin: 0;
-  height: calc(4rem + 62vw);                  /* header + photo window on phones */
+  position: fixed; inset: 0; z-index: -1; margin: 0;
   background: var(--color-dark);
 }
-.hero-slide { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity 1.6s ease; }
+/* Phones: the photo fills the header + window area (a good landscape crop);
+   below that it fades into the dark green. */
+.hero-slide { position: absolute; inset: 0 0 auto 0; height: calc(4rem + 62vw); margin: 0; opacity: 0; transition: opacity 1.6s ease; }
+.hero-slides::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(30, 77, 71, 0) calc(4rem + 62vw - 96px), var(--color-dark) calc(4rem + 62vw));
+}
+.hero-shade {
+  position: absolute; inset: 0; z-index: 2;
+  background: var(--color-dark-deep); opacity: var(--shade, 0);
+}
 .hero-slide.is-active { opacity: 1; }
 .hero-slide img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, center); }
 
@@ -313,9 +359,8 @@ html:not(.js) .hero__controls { display: none; }
 
 @media (min-width: 60em) {
   :root { --hero-solid-end: calc(max(var(--gutter), (100vw - var(--container)) / 2 + var(--gutter)) + 34rem + 24px); }
-  .hero-slides { height: 100vh; height: 100lvh; }
+  .hero-slide { inset: 0; height: auto; }
   .hero-slides::after {
-    content: ""; position: absolute; inset: 0;
     background: linear-gradient(90deg,
       var(--color-dark) 0, var(--color-dark) var(--hero-solid-end),
       rgba(30, 77, 71, 0.55) calc(var(--hero-solid-end) + 10vw),
@@ -479,7 +524,8 @@ html:not(.js) .hero__controls { display: none; }
 
 @media print {
   .hero-slides, .hero__stage { display: none !important; }
-  .hero__panel { background: none !important; }
+  .hero__panel, .section { background: none !important; }
+  .section { --color-text: #000; --color-heading: #000; --color-text-muted: #333; --color-link: #000; }
   .site-header, .sticky-cta, .cta-group, .nav-toggle { display: none !important; }
   body { padding-bottom: 0; }
   .faq details { display: block; }

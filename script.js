@@ -115,6 +115,28 @@
     start();
   }
 
+  /* Darken the hero photos as the page scrolls past the hero ------------
+     --shade goes from 0 at the top to MAX once you've scrolled one hero
+     height. The section panels are readable on their own; this just
+     deepens the background. */
+  var shadeLayer = document.querySelector('.hero-shade');
+  var heroEl = document.getElementById('top');
+  if (shadeLayer && heroEl) {
+    var MAX_SHADE = 0.6;
+    var ticking = false;
+    var updateShade = function () {
+      ticking = false;
+      var h = heroEl.offsetHeight || window.innerHeight;
+      var t = Math.min(1, Math.max(0, window.scrollY / h));
+      shadeLayer.style.setProperty('--shade', (t * MAX_SHADE).toFixed(3));
+    };
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(updateShade); }
+    }, { passive: true });
+    window.addEventListener('resize', updateShade);
+    updateShade();
+  }
+
   /* Footer year --------------------------------------------------------- */
   var year = document.querySelector('[data-year]');
   if (year) year.textContent = String(new Date().getFullYear());
