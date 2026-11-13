@@ -162,7 +162,7 @@ Everything below needs real content before launch. Search the files for `PLACEHO
 - [ ] **Living Water Foursquare logo:** replace `assets/logo-living-water-placeholder.svg`. Use light/white art, because it sits on the evergreen footer. (The brand kit only had conference logos.)
 - [ ] **FMI Asia logo:** replace `assets/logo-fmi-asia-placeholder.svg`.
 - [ ] **Social URLs:** Facebook, Instagram, YouTube (`…/PLACEHOLDER`). Update the `aria-label`s if the accounts belong to FMI or the conference.
-- [ ] **Partner links:** currently https://www.asiapacificmissions.org and https://www.foursquaremissions.org. Confirm these are the links you want.
+- [x] **Partner links:** every Foursquare Missions link (hero and footer) goes to https://resources.foursquare.org/meet-your-fmi-workers/. Note: asiapacificmissions.org belongs to a different denomination, so don't use it.
 
 ### Meta, sharing & icons (`<head>`)
 - [ ] **Canonical / `og:url`:** currently `https://jcobler77.github.io/asiaawareness/`. Change it to the custom domain once it is live.
