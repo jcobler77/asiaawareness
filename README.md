@@ -114,6 +114,8 @@ motion", and it stops while the tab is hidden or the hero is scrolled out of vie
 | `hero-3-540` | supplied, **confirm license**; only 540px wide, so it looks soft on large screens |
 | `hero-4-*` | supplied, **confirm license** |
 
+`regions-map-*` (not part of the slideshow) is the "Together to the Unreached 2027" map in the Why Asia section, supplied by you. It links to the full-size image so people on phones can zoom in.
+
 The slideshow deliberately shows no place names, in the captions or the alt text.
 
 **To add, remove or reorder a photo:** in `index.html`, each photo is a `<figure class="hero-slide">`

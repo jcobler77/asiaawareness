@@ -405,6 +405,13 @@ html:not(.js) .hero__controls { display: none; }
 .nation-list strong { display: block; font-family: var(--font-display); font-size: var(--fs-md); color: var(--color-heading); }
 .nation-list span { color: var(--color-text-muted); font-size: var(--fs-sm); }
 
+/* --- Region map (Why Asia) -------------------------------------------- */
+.region-map { margin: var(--space-xl) 0 0; }
+.region-map__link { display: block; border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35); }
+.region-map__link img { width: 100%; height: auto; transition: transform 300ms ease; }
+.region-map__link:hover img { transform: scale(1.015); }
+.region-map figcaption { margin-top: var(--space-sm); font-size: var(--fs-sm); color: var(--color-text-muted); text-align: center; }
+
 /* --- Cards --------------------------------------------------------------- */
 .card-grid { display: grid; gap: var(--space-md); grid-template-columns: 1fr; }
 @media (min-width: 48em) { .card-grid--3 { grid-template-columns: repeat(3, 1fr); } }
