@@ -123,7 +123,7 @@ Everything below needs real content before launch. Search the files for `PLACEHO
 `example.org`, `.example`, `[` and `TBD` to find them.
 
 ### Event details (`index.html`)
-- [ ] **Dates:** hero reads `April [X–Y], 2027`. Schedule day headers read `April [X]`, `April [X+1]`, `April [Y]`.
+- [x] **Dates:** April 5–7, 2027 (Monday evening to Wednesday morning), in the hero, schedule headers and share descriptions.
 - [ ] **Schedule times:** 5:30 PM, 7:00 PM, 9:00 AM, 12:00 PM, 2:00 PM are draft guesses. The "Draft schedule, subject to change" badge stays until final.
 - [ ] **Session descriptions** in the schedule ("Worship, welcome and vision for Asia", breakouts, commissioning, etc.).
 - [ ] **Church street address and ZIP** (Lodging & Travel › Directions & parking).
