@@ -1,83 +1,91 @@
 /* ==========================================================================
    Asia Awareness Conference 2027 — styles.css
    --------------------------------------------------------------------------
-   DESIGN TOKENS — brand tokens v1.0 ("Together on Mission")
-   Source: brand kit tokens/tokens.css. Fonts: Bricolage Grotesque (display)
-   and Source Sans 3 (body) from Google Fonts, loaded in index.html.
+   DESIGN TOKENS — Foursquare Missions International (FMI) brand guidelines
+   (2020). See BRAND-FMI.md for the rules these follow.
+   Fonts: FMI specifies Recoleta Alt (display) and Gotham (content), which are
+   licensed fonts not available from Google Fonts. The closest free web
+   equivalents are used: Fraunces for Recoleta Alt and Montserrat for Gotham
+   (both loaded in index.html). If Living Water licenses the real fonts as
+   web fonts, put them first in --font-display / --font-sans.
    NOTE: index.html has a small inline "critical CSS" block that mirrors the
    tokens marked [critical]. Update both if the brand changes.
    ========================================================================== */
 :root {
-  /* Brand palette (from the brand kit) */
-  --aac-evergreen: #1E4D47;   /* primary 1: anchors, headlines, dark fields */
-  --aac-ember: #E8894A;       /* primary 2: fills, buttons (ink text). Never small text on light, never white text on it */
-  --aac-ember-deep: #A94A1F;  /* accent text & links on light grounds */
-  --aac-sound: #2F6E8A;       /* Puget Sound blue: info, focus ring */
-  --aac-moss: #66733A;        /* tags, prayer/response moments */
-  --aac-dawn: #F6DCC4;        /* soft warm panels, highlights */
-  --aac-ink: #1C2421;
-  --aac-stone: #57625D;
-  --aac-mist: #E4E1D9;
-  --aac-linen: #F8F5EF;
-  --aac-white: #FFFFFF;
+  /* FMI palette (brand guidelines, "Color palette") */
+  --fmi-green: #8BA003;   /* primary (logo globe). Fills, buttons with ink text, decorative rules. Never white text on it (2.9:1), never small text on light */
+  --fmi-gold: #EAB450;    /* fills, buttons with ink text, large display text on navy */
+  --fmi-sky: #5683AA;     /* secondary blue: focus ring, icons */
+  --fmi-navy: #415B8B;    /* dark fields, headings and links on light, photo overlays */
+  --fmi-coral: #DD746E;   /* sparing accent fills only (ink text) */
+  --fmi-gray: #58595B;    /* logo gray: body text on light */
+  /* Derived tints/shades (not in the guide; built from the palette for web contrast) */
+  --fmi-navy-deep: #1B2944;   /* deeper navy for photo shade */
+  --fmi-navy-dark: #34497A;   /* hover */
+  --fmi-gold-light: #F8E3B8;  /* light text on dark fields */
+  --fmi-gold-soft: #FBEBC9;   /* soft panels, badges, icon chips */
+  --fmi-ink: #1F2326;
+  --fmi-mist: #E3E6EC;
+  --fmi-cream: #F8F6F0;       /* background of FMI's regions map */
+  --fmi-white: #FFFFFF;
 
-  /* Color — surfaces & text */
-  --color-bg: var(--aac-linen);           /* [critical] page background */
-  --color-surface: var(--aac-white);      /* alternating section background */
-  --color-surface-raised: var(--aac-white); /* cards */
-  --color-text: var(--aac-ink);           /* [critical] 14.6:1 on linen */
-  --color-text-muted: var(--aac-stone);   /* 5.8:1 on linen */
-  --color-heading: var(--aac-evergreen);  /* [critical] 8.7:1 on linen */
-  --color-border: var(--aac-mist);
+  /* Color — surfaces & text (light scheme: cards, no-JS fallback) */
+  --color-bg: var(--fmi-cream);           /* [critical] page background */
+  --color-surface: var(--fmi-white);
+  --color-surface-raised: var(--fmi-white); /* cards */
+  --color-text: var(--fmi-gray);          /* [critical] 7.0:1 on white */
+  --color-text-muted: #6A6B6E;            /* 5.3:1 on white */
+  --color-heading: var(--fmi-navy);       /* [critical] 6.8:1 on white */
+  --color-border: var(--fmi-mist);
 
   /* Color — interactive */
-  --color-primary: var(--aac-evergreen);  /* [critical] secondary buttons, schedule headers */
-  --color-primary-hover: #163a36;
-  --color-on-primary: var(--aac-linen);
-  --color-cta: var(--aac-ember);          /* [critical] primary button fill */
-  --color-cta-hover: #d9773a;
-  --color-on-cta: var(--aac-ink);         /* [critical] 6.1:1 on ember */
-  --color-link: var(--aac-ember-deep);    /* 5.2:1 on linen */
-  --color-link-hover: #8a3c18;
-  --color-accent: var(--aac-ember-deep);  /* eyebrows, small highlights */
-  --color-accent-soft: var(--aac-dawn);
-  --color-accent-line: var(--aac-ember);  /* decorative rules only */
+  --color-primary: var(--fmi-navy);       /* [critical] secondary buttons, schedule headers */
+  --color-primary-hover: var(--fmi-navy-dark);
+  --color-on-primary: var(--fmi-white);   /* 6.8:1 */
+  --color-cta: var(--fmi-green);          /* [critical] primary button fill */
+  --color-cta-hover: var(--fmi-gold);
+  --color-on-cta: var(--fmi-ink);         /* [critical] 5.4:1 on green, 8.4:1 on gold */
+  --color-link: var(--fmi-navy);          /* 6.8:1 on white */
+  --color-link-hover: var(--fmi-navy-deep);
+  --color-accent: var(--fmi-navy);        /* eyebrows on light */
+  --color-accent-soft: var(--fmi-gold-soft);
+  --color-accent-line: var(--fmi-green);  /* decorative rules only */
 
   /* Color — dark bands (header, hero, footer) */
-  --color-dark: var(--aac-evergreen);     /* [critical] */
-  --color-on-dark: var(--aac-linen);      /* [critical] 8.7:1 */
-  --color-on-dark-muted: var(--aac-dawn); /* [critical] 7.2:1 */
-  --color-on-dark-display: var(--aac-ember); /* [critical] large text only (3.7:1) */
-  --color-dark-deep: #14342F;              /* scroll shade over the hero photos */
-  --color-panel: rgba(20, 52, 47, 0.40);   /* section panels over the (shaded) photos */
-  --color-panel-alt: rgba(30, 77, 71, 0.50);
-  --color-panel-solo: rgba(20, 52, 47, 0.82); /* safe with no shade at all: first section, and no-JS */
+  --color-dark: var(--fmi-navy);          /* [critical] */
+  --color-on-dark: var(--fmi-white);      /* [critical] 6.8:1 */
+  --color-on-dark-muted: var(--fmi-gold-light); /* [critical] 5.4:1 */
+  --color-on-dark-display: var(--fmi-gold);     /* [critical] large text only (3.6:1) */
+  --color-dark-deep: var(--fmi-navy-deep);      /* scroll shade over the hero photos */
+  --color-panel: rgba(27, 41, 68, 0.50);        /* section panels over the (shaded) photos */
+  --color-panel-alt: rgba(65, 91, 139, 0.60);
+  --color-panel-solo: rgba(27, 41, 68, 0.85);   /* safe with no shade at all: first section, and no-JS */
 
   /* Focus ring */
-  --color-focus: var(--aac-sound);        /* [critical] */
-  --color-focus-on-dark: var(--aac-dawn); /* [critical] */
+  --color-focus: var(--fmi-sky);          /* [critical] 4.0:1 on white */
+  --color-focus-on-dark: var(--fmi-gold); /* [critical] */
 
   /* Typography */
-  --font-sans: "Source Sans 3", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;           /* [critical] */
-  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;                   /* [critical] */
+  --font-sans: "Montserrat", "Gotham", "Helvetica Neue", Arial, sans-serif;          /* [critical] Gotham substitute */
+  --font-display: "Fraunces", "Recoleta Alt", Georgia, "Times New Roman", serif;     /* [critical] Recoleta Alt substitute */
   --fw-regular: 400;
   --fw-semibold: 600;
   --fw-bold: 700;
-  --lh-tight: 1.05;
-  --lh-heading: 1.15;
-  --lh-body: 1.55;
-  --tracking-display: -0.02em;
-  --tracking-eyebrow: 0.16em;
+  --lh-tight: 1.08;
+  --lh-heading: 1.18;
+  --lh-body: 1.65;
+  --tracking-display: -0.01em;
+  --tracking-eyebrow: 0.14em;
 
-  /* Type scale (brand: 1.25 ratio on an 18px body) */
-  --fs-xs: 0.875rem;                                   /* 14px eyebrow */
-  --fs-sm: 1rem;                                       /* 16px small */
-  --fs-base: 1.125rem;                                 /* 18px body */
-  --fs-md: 1.375rem;                                   /* 22px lead */
-  --fs-h3: 1.5rem;                                     /* 24px */
-  --fs-lg: 1.375rem;                                   /* hero theme line */
-  --fs-xl: clamp(1.75rem, 1.4rem + 1.4vw, 2.25rem);    /* h2 28 → 36px */
-  --fs-2xl: clamp(2.75rem, 1.6rem + 4.6vw, 4.5rem);    /* display 44 → 72px */
+  /* Type scale */
+  --fs-xs: 0.8125rem;                                  /* 13px eyebrow (bold caps) */
+  --fs-sm: 0.9375rem;                                  /* 15px small */
+  --fs-base: 1.0625rem;                                /* 17px body (Montserrat runs wide) */
+  --fs-md: 1.25rem;                                    /* 20px lead */
+  --fs-h3: 1.4rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: clamp(1.85rem, 1.45rem + 1.5vw, 2.5rem);    /* h2 */
+  --fs-2xl: clamp(2.75rem, 1.6rem + 4.6vw, 4.75rem);   /* display */
 
   /* Spacing (8px base) */
   --space-3xs: 4px;
@@ -99,7 +107,7 @@
   --radius-md: 12px;
   --radius-lg: 24px;
   --radius-pill: 999px;
-  --shadow-card: 0 1px 2px rgba(28, 36, 33, .08), 0 4px 12px rgba(28, 36, 33, .06);
+  --shadow-card: 0 1px 2px rgba(27, 41, 68, .10), 0 6px 18px rgba(27, 41, 68, .10);
 
   /* Motion */
   --transition: 150ms ease;
@@ -139,7 +147,8 @@ h1, h2, h3, h4 {
   font-weight: var(--fw-bold);
   color: var(--color-heading);
 }
-h1, h2 { letter-spacing: -0.01em; }
+h1, h2 { letter-spacing: var(--tracking-display); }
+h2, h3 { font-weight: var(--fw-semibold); }
 h2 { font-size: var(--fs-xl); line-height: var(--lh-heading); }
 h3 { font-size: var(--fs-h3); font-weight: var(--fw-semibold); line-height: 1.2; }
 .on-dark h1, .on-dark h2, .on-dark h3 { color: var(--color-on-dark); }
@@ -246,25 +255,26 @@ a:hover { color: var(--color-link-hover); }
 /* ==========================================================================
    Sections
    ========================================================================== */
-/* Sections are translucent dark panels over the fixed hero photos, with a
-   light text scheme. Contrast, worst case = a pure white photo pixel:
-   - First section (#why-asia) and no-JS: panel-solo .82 with NO shade
-     -> linen 7.0:1, dawn 5.7:1. It is visible while the shade is ramping.
-   - Later sections: shade .60 (fully on before they scroll into view,
-     see script.js) + panel .40 -> linen 5.8:1, dawn 4.8:1;
-     panel-alt .50 -> linen 5.5:1, dawn 4.6:1. ~20-24% of the photo shows.
-   Ember-deep and stone are never used directly on these panels. */
+/* Sections are translucent navy panels over the fixed hero photos (FMI's
+   navy photo-overlay treatment), with a light text scheme. Contrast, worst
+   case = a pure white photo pixel:
+   - First section (#why-asia) and no-JS: panel-solo deep navy .85, NO shade
+     -> white 9.0:1, gold-light 7.2:1.
+   - Later sections: shade .65 (fully on before they scroll into view, see
+     script.js) + panel deep navy .50 -> white 8.3:1, gold-light 6.6:1;
+     panel-alt navy .60 -> white 5.9:1, gold-light 4.7:1.
+   FMI gold is used on these panels only for large text; green never as text. */
 .section {
   position: relative; padding-block: var(--space-2xl);
   background: var(--color-panel);
-  --color-text: var(--aac-linen);
-  --color-heading: var(--aac-linen);
-  --color-text-muted: var(--aac-dawn);
-  --color-link: var(--aac-dawn);
-  --color-link-hover: var(--aac-white);
-  --color-accent: var(--aac-dawn);
-  --color-border: rgba(248, 245, 239, 0.28);
-  --color-focus: var(--aac-dawn);
+  --color-text: var(--fmi-white);
+  --color-heading: var(--fmi-white);
+  --color-text-muted: var(--fmi-gold-light);
+  --color-link: var(--fmi-gold-light);
+  --color-link-hover: var(--fmi-white);
+  --color-accent: var(--fmi-gold-light);
+  --color-border: rgba(255, 255, 255, 0.28);
+  --color-focus: var(--fmi-gold);
   color: var(--color-text);
 }
 .section--alt { background: var(--color-panel-alt); }
@@ -272,14 +282,14 @@ a:hover { color: var(--color-link-hover); }
 
 /* White surfaces inside sections switch back to the light (default) scheme. */
 .card, .day, .speaker, .hotel, .callout, .badge {
-  --color-text: var(--aac-ink);
-  --color-heading: var(--aac-evergreen);
-  --color-text-muted: var(--aac-stone);
-  --color-link: var(--aac-ember-deep);
-  --color-link-hover: #8a3c18;
-  --color-accent: var(--aac-ember-deep);
-  --color-border: var(--aac-mist);
-  --color-focus: var(--aac-sound);
+  --color-text: var(--fmi-gray);
+  --color-heading: var(--fmi-navy);
+  --color-text-muted: #6A6B6E;
+  --color-link: var(--fmi-navy);
+  --color-link-hover: var(--fmi-navy-deep);
+  --color-accent: var(--fmi-navy);
+  --color-border: var(--fmi-mist);
+  --color-focus: var(--fmi-sky);
   color: var(--color-text);
 }
 .section__header { max-width: var(--container-narrow); margin-bottom: var(--space-xl); }
@@ -287,11 +297,13 @@ a:hover { color: var(--color-link-hover); }
 .section__intro { font-size: var(--fs-md); color: var(--color-text-muted); margin: 0; }
 
 .eyebrow {
-  display: inline-block; margin-bottom: var(--space-xs);
-  font-size: var(--fs-xs); font-weight: var(--fw-bold);
+  display: inline-flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-xs);
+  font-family: var(--font-sans); font-size: var(--fs-xs); font-weight: var(--fw-bold);
   text-transform: uppercase; letter-spacing: var(--tracking-eyebrow);
   color: var(--color-accent);
 }
+.eyebrow::before { content: ""; width: 28px; height: 3px; border-radius: 2px; background: var(--color-accent-line); flex: none; } /* FMI green, decorative */
+.section__header--center .eyebrow { justify-content: center; }
 .on-dark .eyebrow { color: var(--color-on-dark-muted); }
 
 .badge {
@@ -339,7 +351,7 @@ a:hover { color: var(--color-link-hover); }
 }
 .hero-slides::after {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(180deg, rgba(30, 77, 71, 0) calc(4rem + 62vw - 96px), var(--color-dark) calc(4rem + 62vw));
+  background: linear-gradient(180deg, rgba(65, 91, 139, 0) calc(4rem + 62vw - 96px), var(--color-dark) calc(4rem + 62vw));
   opacity: calc(1 - var(--grow, 0));
 }
 .hero-shade {
@@ -375,8 +387,8 @@ html:not(.js) .hero__controls { display: none; }
   .hero-slides::after {
     background: linear-gradient(90deg,
       var(--color-dark) 0, var(--color-dark) var(--hero-solid-end),
-      rgba(30, 77, 71, 0.55) calc(var(--hero-solid-end) + 10vw),
-      rgba(30, 77, 71, 0.05) 100%);
+      rgba(65, 91, 139, 0.55) calc(var(--hero-solid-end) + 10vw),
+      rgba(65, 91, 139, 0.05) 100%);
   }
   .hero--slides { position: relative; display: flex; align-items: center; min-height: min(88vh, 820px); }
   .hero__stage { position: absolute; inset: 0; z-index: 1; height: auto; min-height: 0; pointer-events: none; }
@@ -516,7 +528,9 @@ html:not(.js) .hero__controls { display: none; }
 @media (min-width: 48em) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; } }
 .footer-logos { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-bottom: var(--space-sm); }
 .footer-brand { width: 220px; margin-bottom: var(--space-md); }
+.footer-logos { align-items: center; }
 .footer-logos img { width: 180px; }
+.footer-logos .footer-logo-fmi { width: 210px; }
 .site-footer h2 { font-family: var(--font-sans); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: var(--tracking-eyebrow); color: var(--color-on-dark-muted); margin-bottom: var(--space-xs); }
 .site-footer p, .site-footer li { color: var(--color-on-dark-muted); font-size: var(--fs-sm); }
 .site-footer ul { list-style: none; margin: 0; padding: 0; }

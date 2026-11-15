@@ -16,7 +16,7 @@ Plain HTML, CSS and vanilla JS. No framework, no build step, no external librari
     ├── brand/                              logos, favicons (final)
     ├── og-image.png                        share image (1200×630)
     ├── logo-living-water-placeholder.svg   PLACEHOLDER
-    ├── logo-fmi-asia-placeholder.svg       PLACEHOLDER
+    ├── brand/fmi-logo-white.png            FMI logo (white, from FMI artwork)
     └── speaker-placeholder.svg             PLACEHOLDER
 ```
 
@@ -59,47 +59,36 @@ with the site's CSS.
 
 ## Brand
 
-The page uses the Asia Awareness Conference brand tokens v1.0 ("Together on Mission").
+The site follows the **Foursquare Missions International (FMI) brand guidelines**. The rules are in
+**[BRAND-FMI.md](BRAND-FMI.md)**; read them before changing colors, fonts or logos.
 
-- **Tokens:** the brand palette (`--aac-*`) and the page's design tokens live in `:root` at the top of `styles.css`.
-- **Fonts:** Bricolage Grotesque (headings) and Source Sans 3 (body) load from Google Fonts in `<head>`, without blocking the first paint. If they fail to load, system fonts take over.
-- **Logos and icons:** in `assets/brand/`.
+- **Tokens:** the FMI palette (`--fmi-*`) and the page's design tokens live in `:root` at the top of
+  `styles.css`.
+- **Fonts:** FMI specifies Recoleta Alt and Gotham, which are licensed fonts. The site uses the free
+  stand-ins Fraunces and Montserrat from Google Fonts. Swap in the real fonts if you get web licenses.
+- **FMI logo:** the white version, `assets/brand/fmi-logo-white.png`, is in the footer.
+- **Conference logos and icons:** the Asia Awareness Conference artwork is in `assets/brand/aac-*`.
   - `aac-horizontal-reversed.svg`: header.
-  - `aac-mark-reversed.svg`: large mark in the desktop hero.
   - `aac-stacked-reversed.svg`: footer.
   - `aac-app-icon.svg`, `favicon-64.png` and `aac-app-icon-180.png`: favicons.
-- **Share image:** `assets/og-image.png` is the stacked logo on evergreen, 1200×630.
+- **Share image:** `assets/og-image.png` still uses the conference artwork on evergreen. Regenerate it
+  in FMI navy if you want it to match.
 
 **One catch:** `index.html` has a small inline critical-CSS block in `<head>` so the header and hero
 render before `styles.css` loads. It repeats the tokens marked `[critical]` in `styles.css`. If brand
 colors or fonts change, update the `:root` line in the inline `<style>` block too.
 
-Brand contrast rules the stylesheet follows:
-
-| Pairing | Ratio | Use |
-|---|---|---|
-| Ink on linen | 14.6:1 | body text |
-| Evergreen on linen | 8.7:1 | headings |
-| Stone on linen | 5.8:1 | secondary text |
-| Ember-deep on linen | 5.2:1 | links, eyebrows |
-| Ink on ember | 6.1:1 | primary buttons |
-| Linen / dawn on evergreen | 8.7 / 7.2:1 | text on dark bands |
-| Ember on evergreen | 3.7:1 | **large text only** (hero theme line) |
-| Evergreen on dawn | 7.2:1 | badges and links on dawn panels (ember-deep on dawn is only 4.3:1, so it isn't used) |
-
-White text on ember (2.6:1) is never used.
-
 ## Hero photos
 
 The hero crossfades through four photos every 7 seconds, on a layer fixed behind the whole page.
 The photos stay behind the content as you scroll and darken as you move past the hero: the shade
-goes up to 60%, controlled by `MAX_SHADE` in `script.js`. It reaches full strength before the second
+goes up to 65%, controlled by `MAX_SHADE` in `script.js`. It reaches full strength before the second
 section scrolls into view. On phones, the photo also zooms out of its top window to fill the screen.
 
-The content sections are translucent dark-green panels with light text, so about a fifth of the
+The content sections are translucent navy panels (FMI's navy photo-overlay look) with light text, so about a fifth of the
 photo shows through:
-- `--color-panel` is 40% and `--color-panel-alt` is 50%.
-- The first section uses the heavier `--color-panel-solo` (82%), because it is on screen while the
+- `--color-panel` is deep navy at 50% and `--color-panel-alt` is navy at 60%.
+- The first section uses the heavier `--color-panel-solo` (85%), because it is on screen while the
   shade is still ramping up. Pages without JavaScript use it for every section.
 
 These numbers are tuned together to pass AA contrast even over a white photo. If you change
@@ -114,7 +103,7 @@ motion", and it stops while the tab is hidden or the hero is scrolled out of vie
 | `hero-3-540` | supplied, **confirm license**; only 540px wide, so it looks soft on large screens |
 | `hero-4-*` | supplied, **confirm license** |
 
-`regions-map-*` (not part of the slideshow) is the "Together to the Unreached 2027" map in the Why Asia section, supplied by you. It links to the full-size image so people on phones can zoom in.
+`fmi-asia-map-*` (not part of the slideshow) is the Asia portion of FMI's global regions map, shown in the Why Asia section with a credit to FMI. It links to the full-size image so people on phones can zoom in. (It replaced the earlier "Together to the Unreached 2027" map, which is still in git history.)
 
 The slideshow deliberately shows no place names, in the captions or the alt text.
 
@@ -160,7 +149,7 @@ Everything below needs real content before launch. Search the files for `PLACEHO
 ### Footer & contact
 - [ ] **Contact email:** `EMAIL@example.org` (appears in footer, registration footnote, host-home callout and FAQ).
 - [ ] **Living Water Foursquare logo:** replace `assets/logo-living-water-placeholder.svg`. Use light/white art, because it sits on the evergreen footer. (The brand kit only had conference logos.)
-- [ ] **FMI Asia logo:** replace `assets/logo-fmi-asia-placeholder.svg`.
+- [x] **FMI logo:** in the footer (white). Swap for an official FMI file if you get one.
 - [ ] **Social URLs:** Facebook, Instagram, YouTube (`…/PLACEHOLDER`). Update the `aria-label`s if the accounts belong to FMI or the conference.
 - [x] **Partner links:** every Foursquare Missions link (hero and footer) goes to https://resources.foursquare.org/meet-your-fmi-workers/. Note: asiapacificmissions.org belongs to a different denomination, so don't use it.
 

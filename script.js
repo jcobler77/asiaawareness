@@ -124,7 +124,7 @@
   var heroEl = document.getElementById('top');
   var secondSection = document.getElementById('who');
   if (layer && heroEl) {
-    var MAX_SHADE = 0.6;
+    var MAX_SHADE = 0.65;
     var wide = window.matchMedia('(min-width: 60em)');
     var ticking = false;
     var update = function () {
