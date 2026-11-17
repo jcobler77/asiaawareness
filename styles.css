@@ -419,7 +419,23 @@ html:not(.js) .hero__controls { display: none; }
 
 /* --- Region map (Why Asia) -------------------------------------------- */
 .region-map { margin: var(--space-xl) 0 0; }
-.region-map__link { display: block; border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35); }
+.region-map__card { border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35); background: var(--fmi-cream); }
+.region-map__title {
+  background: var(--fmi-navy); color: var(--fmi-white); text-align: center;
+  padding: var(--space-md) var(--space-md) var(--space-md);
+  border-bottom: 6px solid var(--fmi-green);  /* FMI green rule, decorative */
+}
+.region-map__tagline {
+  margin: 0; font-family: var(--font-display); font-weight: var(--fw-semibold);
+  font-size: clamp(2rem, 1.3rem + 3.2vw, 3.75rem); line-height: 1.05; letter-spacing: var(--tracking-display);
+  color: var(--fmi-white);                     /* 6.8:1 on navy */
+}
+.region-map__name {
+  margin: var(--space-2xs) 0 0; font-family: var(--font-sans); font-weight: var(--fw-bold);
+  font-size: clamp(0.8125rem, 0.7rem + 0.5vw, 1.0625rem); text-transform: uppercase; letter-spacing: 0.16em;
+  color: var(--fmi-gold-light);                /* 5.4:1 on navy */
+}
+.region-map__link { display: block; overflow: hidden; }
 .region-map__link img { width: 100%; height: auto; transition: transform 300ms ease; }
 .region-map__link:hover img { transform: scale(1.015); }
 .region-map figcaption { margin-top: var(--space-sm); font-size: var(--fs-sm); color: var(--color-text-muted); text-align: center; }
@@ -564,3 +580,4 @@ html:not(.js) .hero__controls { display: none; }
   .faq details { display: block; }
 }
 [tabindex="-1"]:focus:not(:focus-visible) { outline: none; }
+.region-map__link:focus-visible { outline-offset: -5px; }

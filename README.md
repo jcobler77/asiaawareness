@@ -71,8 +71,8 @@ The site follows the **Foursquare Missions International (FMI) brand guidelines*
   - `aac-horizontal-reversed.svg`: header.
   - `aac-stacked-reversed.svg`: footer.
   - `aac-app-icon.svg`, `favicon-64.png` and `aac-app-icon-180.png`: favicons.
-- **Share image:** `assets/og-image.png` still uses the conference artwork on evergreen. Regenerate it
-  in FMI navy if you want it to match.
+- **Share image:** `assets/og-image.png` (1200×630) has "See, Love, Reach", the conference name and
+  dates on FMI navy, next to FMI's Asia map.
 
 **One catch:** `index.html` has a small inline critical-CSS block in `<head>` so the header and hero
 render before `styles.css` loads. It repeats the tokens marked `[critical]` in `styles.css`. If brand
@@ -103,7 +103,7 @@ motion", and it stops while the tab is hidden or the hero is scrolled out of vie
 | `hero-3-540` | supplied, **confirm license**; only 540px wide, so it looks soft on large screens |
 | `hero-4-*` | supplied, **confirm license** |
 
-`fmi-asia-map-*` (not part of the slideshow) is the Asia portion of FMI's global regions map, shown in the Why Asia section with a credit to FMI. It links to the full-size image so people on phones can zoom in. (It replaced the earlier "Together to the Unreached 2027" map, which is still in git history.)
+In the Why Asia section, the map card has a navy title band, "See, Love, Reach" over "Asia Awareness Conference 2027", as live text. Tapping the map opens `see-love-reach-asia-map.jpg`, the same title and map as one image, which is handy to download and share. `fmi-asia-map-*` (not part of the slideshow) is the Asia portion of FMI's global regions map, shown in the Why Asia section with a credit to FMI. It links to the full-size image so people on phones can zoom in. (It replaced the earlier "Together to the Unreached 2027" map, which is still in git history.)
 
 The slideshow deliberately shows no place names, in the captions or the alt text.
 
