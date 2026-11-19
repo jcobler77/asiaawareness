@@ -240,6 +240,9 @@ a:hover { color: var(--color-link-hover); }
   .js .site-nav.is-open { display: block; }
   .site-nav ul { flex-direction: column; gap: 0; }
   .site-nav a { display: block; padding: var(--space-xs) 0; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+  /* Register is in the mobile menu too (the sticky bar also offers it). */
+  .site-nav .nav-cta { display: block; padding-top: var(--space-sm); }
+  .site-nav .nav-cta a { display: block; text-align: center; border-top: 0; border-radius: var(--radius-pill); background: var(--color-cta); color: var(--color-on-cta); font-weight: var(--fw-bold); }
 }
 @media (min-width: 48em) {
   .js .nav-toggle { display: none; }

@@ -45,109 +45,38 @@
     watched.forEach(function (el) { io.observe(el); });
   }
 
-  /* Move focus to in-page targets so keyboard and screen reader users land
-     where the link points (smooth scrolling is handled by CSS). */
+  /* In-page links (menu, buttons) ---------------------------------------
+     We do the scroll ourselves instead of leaving it to the browser.
+     Letting the browser scroll and then moving focus (for keyboard and
+     screen reader users) races the smooth scroll, and Safari and Firefox
+     can cancel the scroll when focus moves mid-animation. Here focus only
+     moves after the scroll has finished. */
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     var link = e.target.closest('a[href^="#"]');
     if (!link) return;
-    var id = link.getAttribute('href').slice(1);
+    var id = decodeURIComponent(link.getAttribute('href').slice(1));
     var target = id && document.getElementById(id);
     if (!target) return;
-    if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
-    // Wait a frame so the browser's own scroll happens first.
-    requestAnimationFrame(function () { target.focus({ preventScroll: true }); });
-  });
+    e.preventDefault();
 
-  /* Rotating hero photos -------------------------------------------------
-     Crossfades every 7s. Has a pause/play button (WCAG 2.2.2), starts paused
-     for people who prefer reduced motion, and stops while the tab is hidden
-     or the hero has scrolled out of view. */
-  var slideLayer = document.querySelector('[data-hero-slides]');
-  var slides = slideLayer ? Array.prototype.slice.call(slideLayer.querySelectorAll('.hero-slide')) : [];
-  var toggleBtn = document.querySelector('[data-hero-toggle]');
-  var toggleLabel = document.querySelector('[data-hero-toggle-label]');
-  if (slides.length > 1 && toggleBtn) {
-    var INTERVAL = 7000;
-    var current = 0;
-    var timer = null;
-    var userPaused = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var heroVisible = true;
+    var smooth = !reduceMotion;
+    target.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+    if (history.pushState) history.pushState(null, '', '#' + id);
 
-    var show = function (index) {
-      slides[current].classList.remove('is-active');
-      current = (index + slides.length) % slides.length;
-      var slide = slides[current];
-      // Make sure a lazy image is fetched before it fades in.
-      var img = slide.querySelector('img');
-      if (img && img.loading === 'lazy') img.loading = 'eager';
-      slide.classList.add('is-active');
-      // Warm up the next image so the following fade is smooth.
-      var next = slides[(current + 1) % slides.length].querySelector('img');
-      if (next && next.loading === 'lazy') next.loading = 'eager';
-    };
-
-    var stop = function () { clearInterval(timer); timer = null; };
-    var start = function () {
-      if (timer || userPaused || !heroVisible || document.hidden) return;
-      timer = setInterval(function () { show(current + 1); }, INTERVAL);
-    };
-    var syncButton = function () {
-      toggleBtn.setAttribute('data-paused', String(userPaused));
-      if (toggleLabel) toggleLabel.textContent = userPaused ? 'Play photo slideshow' : 'Pause photo slideshow';
-    };
-
-    toggleBtn.addEventListener('click', function () {
-      userPaused = !userPaused;
-      syncButton();
-      if (userPaused) stop(); else { show(current + 1); start(); }
-    });
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) stop(); else start();
-    });
-    var hero = document.getElementById('top');
-    if (hero && 'IntersectionObserver' in window) {
-      new IntersectionObserver(function (entries) {
-        heroVisible = entries[0].isIntersecting;
-        if (heroVisible) start(); else stop();
-      }).observe(hero);
-    }
-    syncButton();
-    start();
-  }
-
-  /* Darken the hero photos as the page scrolls past the hero ------------
-     Progress t goes 0 -> 1 between the top of the page and the moment the
-     second section (#why-asia) reaches the bottom of the screen, so the shade is
-     fully on before any lighter panel is visible (see the contrast notes in
-     styles.css). On phones the photo also zooms to fill the screen. */
-  var layer = document.querySelector('[data-hero-slides]');
-  var heroEl = document.getElementById('top');
-  var secondSection = document.getElementById('why-asia');
-  if (layer && heroEl) {
-    var MAX_SHADE = 0.65;
-    var wide = window.matchMedia('(min-width: 60em)');
-    var ticking = false;
-    var update = function () {
-      ticking = false;
-      var vh = window.innerHeight;
-      var end = heroEl.offsetHeight;
-      if (secondSection) end = Math.min(end, secondSection.offsetTop - vh);
-      end = Math.max(1, end);
-      var t = Math.min(1, Math.max(0, window.scrollY / end));
-      layer.style.setProperty('--shade', (t * MAX_SHADE).toFixed(3));
-      layer.style.setProperty('--grow', t.toFixed(3));
-      var scale = 1;
-      if (!wide.matches) {
-        var windowH = 64 + 0.62 * window.innerWidth;   // header + photo window
-        scale = 1 + (Math.max(1, vh / windowH) - 1) * t;
+    var moved = false;
+    var moveFocus = function () {
+      if (moved) return;
+      moved = true;
+      if (!target.hasAttribute('tabindex') && !/^(A|BUTTON|INPUT|SELECT|TEXTAREA|SUMMARY)$/.test(target.tagName)) {
+        target.setAttribute('tabindex', '-1');
       }
-      layer.style.setProperty('--slide-scale', scale.toFixed(3));
+      try { target.focus({ preventScroll: true }); } catch (err) { /* very old browsers */ }
     };
-    var queue = function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
-    window.addEventListener('scroll', queue, { passive: true });
-    window.addEventListener('resize', queue);
-    update();
-  }
+    if (smooth && 'onscrollend' in window) window.addEventListener('scrollend', moveFocus, { once: true });
+    setTimeout(moveFocus, smooth ? 1000 : 0);   // fallback when scrollend isn't supported or never fires
+  });
 
   /* Footer year --------------------------------------------------------- */
   var year = document.querySelector('[data-year]');
