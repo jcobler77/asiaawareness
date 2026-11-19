@@ -117,12 +117,12 @@
 
   /* Darken the hero photos as the page scrolls past the hero ------------
      Progress t goes 0 -> 1 between the top of the page and the moment the
-     second section (#who) reaches the bottom of the screen, so the shade is
+     second section (#why-asia) reaches the bottom of the screen, so the shade is
      fully on before any lighter panel is visible (see the contrast notes in
      styles.css). On phones the photo also zooms to fill the screen. */
   var layer = document.querySelector('[data-hero-slides]');
   var heroEl = document.getElementById('top');
-  var secondSection = document.getElementById('who');
+  var secondSection = document.getElementById('why-asia');
   if (layer && heroEl) {
     var MAX_SHADE = 0.65;
     var wide = window.matchMedia('(min-width: 60em)');

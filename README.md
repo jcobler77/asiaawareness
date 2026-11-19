@@ -1,6 +1,6 @@
 # Asia Awareness Conference 2027 · Landing Page
 
-A single-page landing site for the **Asia Awareness Conference**, *Together on Mission*, hosted by
+A single-page landing site for **See, Love, Reach ASIA: Asia Awareness Conference 2027**, *Together to the Unreached*, hosted by
 Living Water Foursquare Church (Olympia, WA) with Foursquare Missions International (FMI) Asia,
 April 2027.
 
@@ -71,8 +71,8 @@ The site follows the **Foursquare Missions International (FMI) brand guidelines*
   - `aac-horizontal-reversed.svg`: header.
   - `aac-stacked-reversed.svg`: footer.
   - `aac-app-icon.svg`, `favicon-64.png` and `aac-app-icon-180.png`: favicons.
-- **Share image:** `assets/og-image.png` (1200×630) has "See, Love, Reach", the conference name and
-  dates on FMI navy, next to FMI's Asia map.
+- **Share image:** `assets/og-image.png` (1200×630) has "See, Love, Reach ASIA", the conference name,
+  "Together to the Unreached" and the dates on FMI navy, next to FMI's Asia map.
 
 **One catch:** `index.html` has a small inline critical-CSS block in `<head>` so the header and hero
 render before `styles.css` loads. It repeats the tokens marked `[critical]` in `styles.css`. If brand
@@ -88,7 +88,7 @@ section scrolls into view. On phones, the photo also zooms out of its top window
 The content sections are translucent navy panels (FMI's navy photo-overlay look) with light text, so about a fifth of the
 photo shows through:
 - `--color-panel` is deep navy at 50% and `--color-panel-alt` is navy at 60%.
-- The first section uses the heavier `--color-panel-solo` (85%), because it is on screen while the
+- The first section (the intro, `#about`) uses the heavier `--color-panel-solo` (85%), because it is on screen while the
   shade is still ramping up. Pages without JavaScript use it for every section.
 
 These numbers are tuned together to pass AA contrast even over a white photo. If you change
@@ -103,7 +103,7 @@ motion", and it stops while the tab is hidden or the hero is scrolled out of vie
 | `hero-3-540` | supplied, **confirm license**; only 540px wide, so it looks soft on large screens |
 | `hero-4-*` | supplied, **confirm license** |
 
-In the Why Asia section, the map card has a navy title band, "See, Love, Reach" over "Asia Awareness Conference 2027", as live text. Tapping the map opens `see-love-reach-asia-map.jpg`, the same title and map as one image, which is handy to download and share. `fmi-asia-map-*` (not part of the slideshow) is the Asia portion of FMI's global regions map, shown in the Why Asia section with a credit to FMI. It links to the full-size image so people on phones can zoom in. (It replaced the earlier "Together to the Unreached 2027" map, which is still in git history.)
+In the Why Asia section, the map card has a navy title band, "See, Love, Reach ASIA" over "Asia Awareness Conference 2027", as live text. Tapping the map opens `see-love-reach-asia-map.jpg`, the same title and map as one image, which is handy to download and share. `fmi-asia-map-*` (not part of the slideshow) is the Asia portion of FMI's global regions map, shown in the Why Asia section with a credit to FMI. It links to the full-size image so people on phones can zoom in. (It replaced the earlier "Together to the Unreached 2027" map, which is still in git history.)
 
 The slideshow deliberately shows no place names, in the captions or the alt text.
 
@@ -164,7 +164,7 @@ Everything below needs real content before launch. Search the files for `PLACEHO
 
 ### Copy to review
 - [ ] **Why Asia paragraphs:** confirm the claims and wording (India's unreached people groups, the Khmer among the 100 largest unreached people groups, Philippines and the global Foursquare family as senders).
-- [ ] **Who It's For cards, FAQ answers, hero eyebrow** ("Living Water Foursquare & FMI Asia present").
+- [x] **Site copy:** hero, intro, Why Asia, highlights, map, Who It's For and schedule follow the approved content document word for word. Speakers intro, FAQ and footer wording were aligned to it.
 
 ---
 

@@ -258,7 +258,7 @@ a:hover { color: var(--color-link-hover); }
 /* Sections are translucent navy panels over the fixed hero photos (FMI's
    navy photo-overlay treatment), with a light text scheme. Contrast, worst
    case = a pure white photo pixel:
-   - First section (#why-asia) and no-JS: panel-solo deep navy .85, NO shade
+   - First section (#about) and no-JS: panel-solo deep navy .85, NO shade
      -> white 9.0:1, gold-light 7.2:1.
    - Later sections: shade .65 (fully on before they scroll into view, see
      script.js) + panel deep navy .50 -> white 8.3:1, gold-light 6.6:1;
@@ -278,7 +278,7 @@ a:hover { color: var(--color-link-hover); }
   color: var(--color-text);
 }
 .section--alt { background: var(--color-panel-alt); }
-#why-asia, html:not(.js) .section { background: var(--color-panel-solo); }
+#about, html:not(.js) .section { background: var(--color-panel-solo); }
 
 /* White surfaces inside sections switch back to the light (default) scheme. */
 .card, .day, .speaker, .hotel, .callout, .badge {
@@ -407,6 +407,20 @@ html:not(.js) .hero__controls { display: none; }
 .cta-group { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
 .cta-group .btn { flex: 1 1 12rem; }
 @media (min-width: 36em) { .cta-group .btn { flex: 0 0 auto; } }
+
+/* --- Hero title + intro ------------------------------------------------ */
+.hero__title-sub {
+  display: block; margin-top: var(--space-xs);
+  font-family: var(--font-sans); font-weight: var(--fw-bold); text-transform: uppercase;
+  font-size: clamp(1rem, 0.8rem + 0.9vw, 1.375rem); line-height: 1.3; letter-spacing: 0.12em;
+  color: var(--color-on-dark);
+}
+.prose--intro p { font-size: var(--fs-md); line-height: 1.6; color: var(--color-text); }
+.prose--intro p:first-child { color: var(--color-heading); }
+.prose strong { color: var(--color-heading); font-weight: var(--fw-bold); }
+.highlights-title { margin: var(--space-xl) 0 0; font-size: var(--fs-h3); }
+.highlights-title + .nation-list { margin-top: var(--space-md); }
+.region-map__hint { display: block; }
 
 /* --- Prose (Why Asia) ---------------------------------------------------- */
 .prose p { line-height: 1.65; }
