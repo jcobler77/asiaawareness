@@ -560,6 +560,8 @@ html:not(.js) .hero__controls { display: none; }
 .footer-brand { width: 220px; margin-bottom: var(--space-md); }
 .footer-logos { align-items: center; }
 .footer-logos img { width: 180px; }
+.footer-logos { gap: var(--space-md); }
+.footer-logos .footer-logo-lw { width: 200px; }
 .footer-logos .footer-logo-fmi { width: 210px; }
 .site-footer h2 { font-family: var(--font-sans); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: var(--tracking-eyebrow); color: var(--color-on-dark-muted); margin-bottom: var(--space-xs); }
 .site-footer p, .site-footer li { color: var(--color-on-dark-muted); font-size: var(--fs-sm); }

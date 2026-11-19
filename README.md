@@ -15,7 +15,7 @@ Plain HTML, CSS and vanilla JS. No framework, no build step, no external librari
 └── assets/
     ├── brand/                              logos, favicons (final)
     ├── og-image.png                        share image (1200×630)
-    ├── logo-living-water-placeholder.svg   PLACEHOLDER
+    ├── brand/living-water-logo-*.png       Living Water logo (white for the footer, black original)
     ├── brand/fmi-logo-white.png            FMI logo (white, from FMI artwork)
     └── speaker-placeholder.svg             PLACEHOLDER
 ```
@@ -148,7 +148,7 @@ Everything below needs real content before launch. Search the files for `PLACEHO
 
 ### Footer & contact
 - [ ] **Contact email:** `EMAIL@example.org` (appears in footer, registration footnote, host-home callout and FAQ).
-- [ ] **Living Water Foursquare logo:** replace `assets/logo-living-water-placeholder.svg`. Use light/white art, because it sits on the evergreen footer. (The brand kit only had conference logos.)
+- [x] **Living Water logo:** horizontal "Living Water / A Foursquare Church" logo in the footer (white). The circle mark alone is saved as `assets/brand/living-water-mark-*.png`. Swap in a higher-resolution or SVG version if you have one (the supplied file is 468px wide).
 - [x] **FMI logo:** in the footer (white). Swap for an official FMI file if you get one.
 - [ ] **Social URLs:** Facebook, Instagram, YouTube (`…/PLACEHOLDER`). Update the `aria-label`s if the accounts belong to FMI or the conference.
 - [x] **Partner links:** every Foursquare Missions link (hero and footer) goes to https://resources.foursquare.org/meet-your-fmi-workers/. Note: asiapacificmissions.org belongs to a different denomination, so don't use it.
