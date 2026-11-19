@@ -79,3 +79,12 @@ inline critical CSS in `index.html`).
 `assets/photos/fmi-asia-map-*` is the Asia portion of **FMI_GlobalRegionsMap** (North Asia, South Asia,
 Southeast Asia + South Pacific), cropped from FMI's map with its edges softened. Credit FMI when it is
 shown.
+
+## Conference logo (alongside FMI)
+
+The conference has its own logo: "See. Love. Reach. ASIA Awareness Conference", with an Asia map, in
+teal, olive gray and gold on beige. The files are in `assets/brand/conference-logo-*`.
+- **On FMI navy:** the site uses the white version, following FMI's own rule for logos on dark
+  backgrounds.
+- **On light backgrounds:** use the full-color version.
+- **The tagline is always "See. Love. Reach."** with periods.

@@ -1,6 +1,6 @@
 # Asia Awareness Conference 2027 · Landing Page
 
-A single-page landing site for **See, Love, Reach ASIA: Asia Awareness Conference 2027**, *Together to the Unreached*, hosted by
+A single-page landing site for **See. Love. Reach. ASIA: Asia Awareness Conference 2027**, *Together to the Unreached*, hosted by
 Living Water Foursquare Church (Olympia, WA) with Foursquare Missions International (FMI) Asia,
 April 2027.
 
@@ -67,12 +67,19 @@ The site follows the **Foursquare Missions International (FMI) brand guidelines*
 - **Fonts:** FMI specifies Recoleta Alt and Gotham, which are licensed fonts. The site uses the free
   stand-ins Fraunces and Montserrat from Google Fonts. Swap in the real fonts if you get web licenses.
 - **FMI logo:** the white version, `assets/brand/fmi-logo-white.png`, is in the footer.
-- **Conference logos and icons:** the Asia Awareness Conference artwork is in `assets/brand/aac-*`.
-  - `aac-horizontal-reversed.svg`: header.
-  - `aac-stacked-reversed.svg`: footer.
-  - `aac-app-icon.svg`, `favicon-64.png` and `aac-app-icon-180.png`: favicons.
-- **Share image:** `assets/og-image.png` (1200×630) has "See, Love, Reach ASIA", the conference name,
-  "Together to the Unreached" and the dates on FMI navy, next to FMI's Asia map.
+- **Conference logo:** "See. Love. Reach. ASIA Awareness Conference", with the Asia map.
+  - `conference-logo-original.jpg`: the file as supplied, on beige.
+  - `conference-logo-color.png`: full color, transparent background, for light backgrounds.
+  - `conference-logo-white.png`: white, transparent background, for navy. Used in the header, hero
+    (as the page's main heading, with alt text) and footer.
+  - `conference-icon-64.png`, `-180.png`, `-512.png`: the tab and home-screen icon (the logo's map on
+    its teal).
+
+  The cutouts were made from a 1280px JPG. Ask for an SVG or high-resolution PNG of the logo for
+  the sharpest result.
+- **Wording:** always "See. Love. Reach." with periods.
+- **Share image:** `assets/og-image.png` (1200×630) is the conference logo on its beige, over an FMI navy strip
+  with "Together to the Unreached" and the dates.
 
 **One catch:** `index.html` has a small inline critical-CSS block in `<head>` so the header and hero
 render before `styles.css` loads. It repeats the tokens marked `[critical]` in `styles.css`. If brand
@@ -103,7 +110,7 @@ motion", and it stops while the tab is hidden or the hero is scrolled out of vie
 | `hero-3-540` | supplied, **confirm license**; only 540px wide, so it looks soft on large screens |
 | `hero-4-*` | supplied, **confirm license** |
 
-In the Why Asia section, the map card has a navy title band, "See, Love, Reach ASIA" over "Asia Awareness Conference 2027", as live text. Tapping the map opens `see-love-reach-asia-map.jpg`, the same title and map as one image, which is handy to download and share. `fmi-asia-map-*` (not part of the slideshow) is the Asia portion of FMI's global regions map, shown in the Why Asia section with a credit to FMI. It links to the full-size image so people on phones can zoom in. (It replaced the earlier "Together to the Unreached 2027" map, which is still in git history.)
+In the Why Asia section, the map card has a navy title band, "See. Love. Reach. ASIA" over "Asia Awareness Conference 2027", as live text. Tapping the map opens `see-love-reach-asia-map.jpg`, the same title and map as one image, which is handy to download and share. `fmi-asia-map-*` (not part of the slideshow) is the Asia portion of FMI's global regions map, shown in the Why Asia section with a credit to FMI. It links to the full-size image so people on phones can zoom in. (It replaced the earlier "Together to the Unreached 2027" map, which is still in git history.)
 
 The slideshow deliberately shows no place names, in the captions or the alt text.
 
