@@ -421,6 +421,9 @@ html:not(.js) .hero__controls { display: none; }
 .highlights-title { margin: var(--space-xl) 0 0; font-size: var(--fs-h3); }
 .highlights-title + .nation-list { margin-top: var(--space-md); }
 .region-map__hint { display: block; }
+.hero__map-link { color: inherit; text-decoration: underline; text-decoration-color: var(--color-accent-line); text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
+.hero__map-link:hover { color: var(--color-on-dark-muted); }
+.venue-address { font-style: normal; margin: 0 0 var(--space-sm); }
 
 /* --- Prose (Why Asia) ---------------------------------------------------- */
 .prose p { line-height: 1.65; }

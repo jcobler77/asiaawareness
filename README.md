@@ -126,7 +126,7 @@ Everything below needs real content before launch. Search the files for `PLACEHO
 - [x] **Dates:** April 5–7, 2027 (Monday evening to Wednesday morning), in the hero, schedule headers and share descriptions.
 - [ ] **Schedule times:** 5:30 PM, 7:00 PM, 9:00 AM, 12:00 PM, 2:00 PM are draft guesses. The "Draft schedule, subject to change" badge stays until final.
 - [ ] **Session descriptions** in the schedule ("Worship, welcome and vision for Asia", breakouts, commissioning, etc.).
-- [ ] **Church street address and ZIP** (Lodging & Travel › Directions & parking).
+- [x] **Church address:** 2200 18th Ave. SE, Olympia, WA 98501, linked to Google Maps from the hero location and from Lodging & Travel › Directions & parking.
 - [ ] **Parking details** (lot, overflow, accessible parking).
 - [ ] **Google Maps link:** currently a search query. Swap for the exact place link if you like.
 

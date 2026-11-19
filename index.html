@@ -60,7 +60,7 @@ img,svg{max-width:100%;height:auto;display:block}
 .hero h1{font-family:var(--font-display);color:var(--color-on-dark);font-size:clamp(2.75rem,1.6rem + 4.6vw,4.75rem);line-height:1.08;letter-spacing:-.01em;margin:0 0 1rem}
 .hero__title-sub{display:block;margin-top:.75rem;font-family:var(--font-sans);font-weight:700;text-transform:uppercase;font-size:clamp(1rem,.8rem + .9vw,1.375rem);line-height:1.3;letter-spacing:.12em}.hero__theme{font-family:var(--font-display);font-weight:700;font-size:clamp(1.75rem,1.4rem + 1.4vw,2.25rem);line-height:1.15;color:var(--color-on-dark-display)}
 .hero-slides{position:fixed;inset:0;z-index:-1;margin:0;background:var(--color-dark)}.hero-slide{position:absolute;inset:0 0 auto 0;height:calc(4rem + 62vw);margin:0;opacity:0}.hero-slide.is-active{opacity:1}.hero-slide img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,center)}.hero--slides{background:transparent;padding:0}.hero__stage{height:62vw;min-height:200px}.hero__panel{background:var(--color-dark);padding-block:48px}.hero__controls{display:none}@media (min-width:60em){.hero-slide{inset:0;height:auto}.hero__stage{height:0;min-height:0}.hero__panel{background:transparent}.hero--slides{min-height:min(88vh,820px);display:flex;align-items:center}}
-.hero__meta{list-style:none;padding:0}
+.hero__meta{list-style:none;padding:0}.hero__map-link{color:inherit}
 .hero__meta svg{width:1.25rem}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.75rem 1.5rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid transparent}
 .btn--primary{background:var(--color-cta);color:var(--color-on-cta)}
@@ -159,7 +159,7 @@ img,svg{max-width:100%;height:auto;display:block}
         </li>
         <li>
           <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-          <span><span class="visually-hidden">Location: </span>Living Water Foursquare Church, Olympia, WA</span>
+          <span><span class="visually-hidden">Location: </span><a class="hero__map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Living+Water+Foursquare+Church%2C+2200+18th+Ave+SE%2C+Olympia%2C+WA+98501" rel="noopener">Living Water Foursquare Church, Olympia, WA<span class="visually-hidden"> (2200 18th Ave. SE, open in Google Maps)</span></a></span>
         </li>
       </ul>
 
@@ -432,9 +432,11 @@ img,svg{max-width:100%;height:auto;display:block}
           <div class="info-block">
             <h3>Directions &amp; parking</h3>
             <!-- PLACEHOLDER: street address and parking details -->
-            <p>Living Water Foursquare Church<br>[Street Address]<br>Olympia, WA [ZIP]</p>
+            <address class="venue-address">
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Living+Water+Foursquare+Church%2C+2200+18th+Ave+SE%2C+Olympia%2C+WA+98501" rel="noopener">Living Water Foursquare Church<br>2200 18th Ave. SE<br>Olympia, WA 98501<span class="visually-hidden"> (open in Google Maps)</span></a>
+            </address>
             <p>[Parking details: lot location, overflow, accessible parking.]</p>
-            <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Living+Water+Foursquare+Church+Olympia+WA" rel="noopener">Open in Google Maps<span class="visually-hidden"> (opens map)</span></a></p>
+            <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Living+Water+Foursquare+Church%2C+2200+18th+Ave+SE%2C+Olympia%2C+WA+98501" rel="noopener">Open in Google Maps<span class="visually-hidden"> (opens map)</span></a></p>
           </div>
           <div class="info-block" id="lunch">
             <h3>Nearby lunch options</h3>
