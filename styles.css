@@ -440,7 +440,7 @@ html:not(.js) .hero__controls { display: none; }
 .nation-list span { color: var(--color-text-muted); font-size: var(--fs-sm); }
 
 /* --- Region map (Why Asia) -------------------------------------------- */
-.region-map { margin: var(--space-xl) 0 0; }
+.region-map { margin: var(--space-xl) auto 0; max-width: 900px; }
 .region-map__card { border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35); background: var(--fmi-cream); }
 .region-map__title {
   background: var(--fmi-navy); color: var(--fmi-white); text-align: center;

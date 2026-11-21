@@ -66,17 +66,21 @@ The site follows the **Foursquare Missions International (FMI) brand guidelines*
   `styles.css`.
 - **Fonts:** FMI specifies Recoleta Alt and Gotham, which are licensed fonts. The site uses the free
   stand-ins Fraunces and Montserrat from Google Fonts. Swap in the real fonts if you get web licenses.
-- **FMI logo:** the white version, `assets/brand/fmi-logo-white.png`, is in the footer.
-- **Conference logo:** "See. Love. Reach. ASIA Awareness Conference", with the Asia map.
-  - `conference-logo-original.jpg`: the file as supplied, on beige.
-  - `conference-logo-color.png`: full color, transparent background, for light backgrounds.
-  - `conference-logo-white.png`: white, transparent background, for navy. Used in the header, hero
-    (as the page's main heading, with alt text) and footer.
-  - `conference-icon-64.png`, `-180.png`, `-512.png`: the tab and home-screen icon (the logo's map on
-    its teal).
+- **Source files:** the master brand files live in the Google Drive folder **"Asia Awareness Assets"**:
+  - the brand deck (`SeeLoveReach_AsiaAwareness_BrandDeck.pdf`);
+  - conference logos;
+  - FMI logos (PNG and EPS);
+  - website headers;
+  - the FMI Asia regions map.
 
-  The cutouts were made from a 1280px JPG. Ask for an SVG or high-resolution PNG of the logo for
-  the sharpest result.
+  Copies the site uses are in `assets/`.
+- **Conference logo:** "See. Love. Reach. ASIA Awareness Conference", with the Asia map, from
+  `AsiaAwareness_Logo.png` (4000px, transparent background).
+  - `conference-logo-color.png`: full color, for light backgrounds (used in the share image).
+  - `conference-logo-white.png`: white, for navy. Used in the header, hero (as the page's main
+    heading, with alt text) and footer.
+  - `conference-icon-64.png`, `-180.png`, `-512.png`: the tab and home-screen icon (the logo's map).
+- **FMI logo:** `fmi-logo-white.png` is FMI's official `FMILogo_Horiz_White.png`.
 - **Wording:** always "See. Love. Reach." with periods.
 - **Share image:** `assets/og-image.png` (1200×630) is the conference logo on its beige, over an FMI navy strip
   with "Together to the Unreached" and the dates.
@@ -110,7 +114,7 @@ motion", and it stops while the tab is hidden or the hero is scrolled out of vie
 | `hero-3-540` | supplied, **confirm license**; only 540px wide, so it looks soft on large screens |
 | `hero-4-*` | supplied, **confirm license** |
 
-In the Why Asia section, the map card has a navy title band, "See. Love. Reach. ASIA" over "Asia Awareness Conference 2027", as live text. Tapping the map opens `see-love-reach-asia-map.jpg`, the same title and map as one image, which is handy to download and share. `fmi-asia-map-*` (not part of the slideshow) is the Asia portion of FMI's global regions map, shown in the Why Asia section with a credit to FMI. It links to the full-size image so people on phones can zoom in. (It replaced the earlier "Together to the Unreached 2027" map, which is still in git history.)
+In the Why Asia section, the map card has a navy title band, "See. Love. Reach. ASIA" over "Asia Awareness Conference 2027", as live text. Tapping the map opens `see-love-reach-asia-map.jpg`, the same title and map as one image, which is handy to download and share. `fmi-asia-4regions-*` (not part of the slideshow) is FMI's four-region Asia map (`FMI_GlobalMapFor_AsiaAwarenessConf.png`): South Asia, North Asia, Southeast Asia and South Pacific. It is shown in the Why Asia section with a credit to FMI. It links to the full-size image so people on phones can zoom in. (It replaced the earlier "Together to the Unreached 2027" map, which is still in git history.)
 
 The slideshow deliberately shows no place names, in the captions or the alt text.
 

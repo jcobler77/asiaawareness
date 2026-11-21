@@ -18,12 +18,10 @@ and how this site applies them. Follow these for any future change to the site.
   - vertical: globe over FMI, with or without the full name under a rule.
 - **Do not** recolor the wordmark, stretch the logo, or put the full-color logo on a busy or dark
   background. Use the white version there.
-- **Files on this site:**
-  - `assets/brand/fmi-logo-white.png`, used in the footer, which is dark navy.
-  - `assets/brand/fmi-logo-color.png`, for light backgrounds.
-
-  Both were taken from FMI's own regions-map artwork. Swap them for official logo files from FMI if
-  you get them.
+- **Files on this site:** `assets/brand/fmi-logo-white.png` (FMI's official horizontal white logo), used
+  in the footer, which is dark navy.
+- **Other official FMI logo files** (green, grey, vertical, EPS) are in the Google Drive folder "Asia
+  Awareness Assets" › Branding + Logos › FMI Logos.
 
 ## Color palette (from the guide)
 
@@ -76,9 +74,9 @@ inline critical CSS in `index.html`).
 
 ## Regions map
 
-`assets/photos/fmi-asia-map-*` is the Asia portion of **FMI_GlobalRegionsMap** (North Asia, South Asia,
-Southeast Asia + South Pacific), cropped from FMI's map with its edges softened. Credit FMI when it is
-shown.
+`assets/photos/fmi-asia-4regions-*` is FMI's four-region Asia map (South Asia, North Asia, Southeast
+Asia, South Pacific), from the Drive folder (`FMI_GlobalMapFor_AsiaAwarenessConf.png`). It carries the
+FMI logo; credit FMI when it is shown.
 
 ## Conference logo (alongside FMI)
 
