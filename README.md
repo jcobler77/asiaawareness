@@ -40,15 +40,20 @@ One-time setup:
 2. Under **Build and deployment → Source**, choose **GitHub Actions**.
 
 The next push (or **Actions → Deploy to GitHub Pages → Run workflow**) publishes to
-`https://jcobler77.github.io/asiaawareness/`.
+`https://jcobler77.github.io/asiaawareness/`, which now redirects to the custom domain **https://fmiasiaawareness.com/**.
 
-### Custom domain (later)
+### Custom domain
 
-1. At your DNS provider, add a **CNAME** record for the subdomain (e.g. `asia`) pointing to
-   `jcobler77.github.io`, or GitHub's four **A** records for an apex domain.
-2. In **Settings → Pages → Custom domain**, enter the domain, wait for the DNS check, then tick
-   **Enforce HTTPS**.
-3. Update the canonical, `og:url`, `og:image` and `twitter:image` URLs in `index.html` to the new domain.
+**fmiasiaawareness.com** is registered at IONOS. Its DNS has:
+- four **A** records for `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153` and
+  `185.199.111.153`;
+- optionally, four **AAAA** records for `@`: `2606:50c0:8000::153` through `2606:50c0:8003::153`;
+- a **CNAME** record for `www` pointing to `jcobler77.github.io`.
+
+IONOS's default "Webhosting" records were disabled to make room for these.
+
+In GitHub, **Settings → Pages → Custom domain** is `fmiasiaawareness.com`, with **Enforce HTTPS** on.
+`www.fmiasiaawareness.com` redirects to the bare domain.
 
 ## Dropping it into the Living Water website
 
@@ -163,7 +168,7 @@ Everything below needs real content before launch. Search the files for `PLACEHO
 - [x] **Partner links:** every Foursquare Missions link (hero and footer) goes to https://resources.foursquare.org/meet-your-fmi-workers/. Note: asiapacificmissions.org belongs to a different denomination, so don't use it.
 
 ### Meta, sharing & icons (`<head>`)
-- [ ] **Canonical / `og:url`:** currently `https://jcobler77.github.io/asiaawareness/`. Change it to the custom domain once it is live.
+- [ ] **Canonical / `og:url`:** currently `https://jcobler77.github.io/asiaawareness/`, which now redirects to the custom domain **https://fmiasiaawareness.com/**. Change it to the custom domain once it is live.
 - [ ] **`og:image` / `twitter:image`:** update to the custom domain when it is live. (The image itself is final.)
 
 ### Photos
