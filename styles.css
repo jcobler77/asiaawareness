@@ -1,75 +1,75 @@
 /* ==========================================================================
    Asia Awareness Conference 2027 — styles.css
    --------------------------------------------------------------------------
-   DESIGN TOKENS — Foursquare Missions International (FMI) brand guidelines
-   (2020). See BRAND-FMI.md for the rules these follow.
-   Fonts: FMI specifies Recoleta Alt (display) and Gotham (content), which are
-   licensed fonts not available from Google Fonts. The closest free web
-   equivalents are used: Fraunces for Recoleta Alt and Montserrat for Gotham
-   (both loaded in index.html). If Living Water licenses the real fonts as
-   web fonts, put them first in --font-display / --font-sans.
+   DESIGN TOKENS — "See. Love. Reach." campaign brand deck (FMI, Asia
+   Awareness Conference). See BRAND-FMI.md for the rules these follow.
+   Fonts: the deck specifies Dejanire Headline Extra Bold (display) and
+   Gotham Medium/Book (tagline/content), which are licensed fonts not on
+   Google Fonts. Free stand-ins: Playfair Display 800 for Dejanire and
+   Montserrat for Gotham (both loaded in index.html). If you license the
+   real fonts as web fonts, put them first in --font-display / --font-sans.
    NOTE: index.html has a small inline "critical CSS" block that mirrors the
    tokens marked [critical]. Update both if the brand changes.
    ========================================================================== */
 :root {
-  /* FMI palette (brand guidelines, "Color palette") */
-  --fmi-green: #8BA003;   /* primary (logo globe). Fills, buttons with ink text, decorative rules. Never white text on it (2.9:1), never small text on light */
-  --fmi-gold: #EAB450;    /* fills, buttons with ink text, large display text on navy */
-  --fmi-sky: #5683AA;     /* secondary blue: focus ring, icons */
-  --fmi-navy: #415B8B;    /* dark fields, headings and links on light, photo overlays */
-  --fmi-coral: #DD746E;   /* sparing accent fills only (ink text) */
-  --fmi-gray: #58595B;    /* logo gray: body text on light */
-  /* Derived tints/shades (not in the guide; built from the palette for web contrast) */
-  --fmi-navy-deep: #1B2944;   /* deeper navy for photo shade */
-  --fmi-navy-dark: #34497A;   /* hover */
-  --fmi-gold-light: #F8E3B8;  /* light text on dark fields */
-  --fmi-gold-soft: #FBEBC9;   /* soft panels, badges, icon chips */
-  --fmi-ink: #1F2326;
-  --fmi-mist: #E3E6EC;
-  --fmi-cream: #F8F6F0;       /* background of FMI's regions map */
-  --fmi-white: #FFFFFF;
+  /* Campaign palette (brand deck, "Color palette") */
+  --slr-sand: #CBC0A7;
+  --slr-paper: #DED9CB;     /* page/paper background in the deck */
+  --slr-olive: #59584A;     /* "Love." / AWARENESS CONFERENCE */
+  --slr-teal: #2A4955;      /* "Reach." / ASIA — primary dark */
+  --slr-sage: #77867A;
+  --slr-copper: #B67C3A;    /* "See." — decorative rules; too light for small text (3.1:1 on card) */
+  --slr-charcoal: #252C2D;
+  /* Derived for web contrast (not in the deck; built from the palette) */
+  --slr-copper-light: #E3B27A;  /* buttons (charcoal text 7.4:1), display text on teal (5.0:1) */
+  --slr-teal-dark: #213C46;     /* hover */
+  --slr-teal-deep: #17282F;     /* photo shade */
+  --slr-card: #F4F1EA;          /* light cards */
+  --slr-line: #D9D3C4;          /* borders on light */
+  --slr-white: #FFFFFF;
 
   /* Color — surfaces & text (light scheme: cards, no-JS fallback) */
-  --color-bg: var(--fmi-cream);           /* [critical] page background */
-  --color-surface: var(--fmi-white);
-  --color-surface-raised: var(--fmi-white); /* cards */
-  --color-text: var(--fmi-gray);          /* [critical] 7.0:1 on white */
-  --color-text-muted: #6A6B6E;            /* 5.3:1 on white */
-  --color-heading: var(--fmi-navy);       /* [critical] 6.8:1 on white */
-  --color-border: var(--fmi-mist);
+  --color-bg: var(--slr-paper);           /* [critical] page background */
+  --color-surface: var(--slr-card);
+  --color-surface-raised: var(--slr-card); /* cards */
+  --color-text: var(--slr-charcoal);      /* [critical] 12.6:1 on card */
+  --color-text-muted: var(--slr-olive);   /* 6.4:1 on card */
+  --color-heading: var(--slr-teal);       /* [critical] 8.5:1 on card */
+  --color-border: var(--slr-line);
 
   /* Color — interactive */
-  --color-primary: var(--fmi-navy);       /* [critical] secondary buttons, schedule headers */
-  --color-primary-hover: var(--fmi-navy-dark);
-  --color-on-primary: var(--fmi-white);   /* 6.8:1 */
-  --color-cta: var(--fmi-green);          /* [critical] primary button fill */
-  --color-cta-hover: var(--fmi-gold);
-  --color-on-cta: var(--fmi-ink);         /* [critical] 5.4:1 on green, 8.4:1 on gold */
-  --color-link: var(--fmi-navy);          /* 6.8:1 on white */
-  --color-link-hover: var(--fmi-navy-deep);
-  --color-accent: var(--fmi-navy);        /* eyebrows on light */
-  --color-accent-soft: var(--fmi-gold-soft);
-  --color-accent-line: var(--fmi-green);  /* decorative rules only */
+  --color-primary: var(--slr-teal);       /* [critical] secondary buttons, schedule headers */
+  --color-primary-hover: var(--slr-teal-dark);
+  --color-on-primary: var(--slr-white);   /* 9.6:1 */
+  --color-cta: var(--slr-copper-light);   /* [critical] primary button fill */
+  --color-cta-hover: var(--slr-paper);
+  --color-on-cta: var(--slr-charcoal);    /* [critical] 7.4:1 on copper-light, 10.1:1 on paper */
+  --color-link: var(--slr-teal);          /* 8.5:1 on card */
+  --color-link-hover: var(--slr-teal-deep);
+  --color-accent: var(--slr-teal);        /* eyebrows on light */
+  --color-accent-soft: var(--slr-paper);  /* badges, icon chips: teal on paper 6.8:1 */
+  --color-accent-line: var(--slr-copper); /* decorative rules only */
 
   /* Color — dark bands (header, hero, footer) */
-  --color-dark: var(--fmi-navy);          /* [critical] */
-  --color-on-dark: var(--fmi-white);      /* [critical] 6.8:1 */
-  --color-on-dark-muted: var(--fmi-gold-light); /* [critical] 5.4:1 */
-  --color-on-dark-display: var(--fmi-gold);     /* [critical] large text only (3.6:1) */
-  --color-dark-deep: var(--fmi-navy-deep);      /* scroll shade over the hero photos */
-  --color-panel: rgba(27, 41, 68, 0.50);        /* section panels over the (shaded) photos */
-  --color-panel-alt: rgba(65, 91, 139, 0.60);
-  --color-panel-solo: rgba(27, 41, 68, 0.85);   /* safe with no shade at all: first section, and no-JS */
+  --color-dark: var(--slr-teal);          /* [critical] */
+  --color-on-dark: var(--slr-white);      /* [critical] 9.6:1 */
+  --color-on-dark-muted: var(--slr-paper); /* [critical] 6.8:1 */
+  --color-on-dark-display: var(--slr-copper-light); /* [critical] 5.0:1 */
+  --color-dark-deep: var(--slr-teal-deep);      /* scroll shade over the hero photos */
+  --color-panel: rgba(23, 40, 47, 0.50);        /* section panels over the (shaded) photos */
+  --color-panel-alt: rgba(42, 73, 85, 0.60);
+  --color-panel-solo: rgba(23, 40, 47, 0.85);   /* safe with no shade at all: first section, and no-JS */
 
   /* Focus ring */
-  --color-focus: var(--fmi-sky);          /* [critical] 4.0:1 on white */
-  --color-focus-on-dark: var(--fmi-gold); /* [critical] */
+  --color-focus: var(--slr-teal);         /* [critical] */
+  --color-focus-on-dark: var(--slr-copper-light); /* [critical] */
 
   /* Typography */
-  --font-sans: "Montserrat", "Gotham", "Helvetica Neue", Arial, sans-serif;          /* [critical] Gotham substitute */
-  --font-display: "Fraunces", "Recoleta Alt", Georgia, "Times New Roman", serif;     /* [critical] Recoleta Alt substitute */
+  --font-sans: "Montserrat", "Gotham", "Helvetica Neue", Arial, sans-serif;                 /* [critical] Gotham stand-in */
+  --font-display: "Playfair Display", "Dejanire Headline", Georgia, "Times New Roman", serif; /* [critical] Dejanire stand-in */
   --fw-regular: 400;
   --fw-semibold: 600;
+  --fw-display: 800;            /* deck: Dejanire Headline Extra Bold */
   --fw-bold: 700;
   --lh-tight: 1.08;
   --lh-heading: 1.18;
@@ -107,7 +107,7 @@
   --radius-md: 12px;
   --radius-lg: 24px;
   --radius-pill: 999px;
-  --shadow-card: 0 1px 2px rgba(27, 41, 68, .10), 0 6px 18px rgba(27, 41, 68, .10);
+  --shadow-card: 0 1px 2px rgba(23, 40, 47, .10), 0 6px 18px rgba(23, 40, 47, .10);
 
   /* Motion */
   --transition: 150ms ease;
@@ -148,9 +148,10 @@ h1, h2, h3, h4 {
   color: var(--color-heading);
 }
 h1, h2 { letter-spacing: var(--tracking-display); }
-h2, h3 { font-weight: var(--fw-semibold); }
+h2 { font-weight: var(--fw-display); }
+h3 { font-weight: var(--fw-bold); }
 h2 { font-size: var(--fs-xl); line-height: var(--lh-heading); }
-h3 { font-size: var(--fs-h3); font-weight: var(--fw-semibold); line-height: 1.2; }
+h3 { font-size: var(--fs-h3); line-height: 1.2; }
 .on-dark h1, .on-dark h2, .on-dark h3 { color: var(--color-on-dark); }
 p { margin: 0 0 var(--space-sm); }
 
@@ -270,14 +271,14 @@ a:hover { color: var(--color-link-hover); }
 .section {
   position: relative; padding-block: var(--space-2xl);
   background: var(--color-panel);
-  --color-text: var(--fmi-white);
-  --color-heading: var(--fmi-white);
-  --color-text-muted: var(--fmi-gold-light);
-  --color-link: var(--fmi-gold-light);
-  --color-link-hover: var(--fmi-white);
-  --color-accent: var(--fmi-gold-light);
+  --color-text: var(--slr-white);
+  --color-heading: var(--slr-white);
+  --color-text-muted: var(--slr-paper);
+  --color-link: var(--slr-paper);
+  --color-link-hover: var(--slr-white);
+  --color-accent: var(--slr-paper);
   --color-border: rgba(255, 255, 255, 0.28);
-  --color-focus: var(--fmi-gold);
+  --color-focus: var(--slr-copper-light);
   color: var(--color-text);
 }
 .section--alt { background: var(--color-panel-alt); }
@@ -285,14 +286,14 @@ a:hover { color: var(--color-link-hover); }
 
 /* White surfaces inside sections switch back to the light (default) scheme. */
 .card, .day, .speaker, .hotel, .callout, .badge {
-  --color-text: var(--fmi-gray);
-  --color-heading: var(--fmi-navy);
-  --color-text-muted: #6A6B6E;
-  --color-link: var(--fmi-navy);
-  --color-link-hover: var(--fmi-navy-deep);
-  --color-accent: var(--fmi-navy);
-  --color-border: var(--fmi-mist);
-  --color-focus: var(--fmi-sky);
+  --color-text: var(--slr-charcoal);
+  --color-heading: var(--slr-teal);
+  --color-text-muted: var(--slr-olive);
+  --color-link: var(--slr-teal);
+  --color-link-hover: var(--slr-teal-deep);
+  --color-accent: var(--slr-teal);
+  --color-border: var(--slr-line);
+  --color-focus: var(--slr-teal);
   color: var(--color-text);
 }
 .section__header { max-width: var(--container-narrow); margin-bottom: var(--space-xl); }
@@ -324,7 +325,7 @@ a:hover { color: var(--color-link-hover); }
 .hero .container { position: relative; }
 .hero__title { font-size: var(--fs-2xl); line-height: var(--lh-tight); margin-bottom: var(--space-sm); letter-spacing: var(--tracking-display); }
 .hero__theme {
-  font-family: var(--font-display); font-size: var(--fs-xl); font-weight: var(--fw-bold); line-height: var(--lh-heading);
+  font-family: var(--font-display); font-size: var(--fs-xl); font-weight: var(--fw-display); line-height: var(--lh-heading);
   color: var(--color-on-dark-display); margin-bottom: var(--space-lg);
 }
 /* --- Rotating hero photos ----------------------------------------------
@@ -354,7 +355,7 @@ a:hover { color: var(--color-link-hover); }
 }
 .hero-slides::after {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(180deg, rgba(65, 91, 139, 0) calc(4rem + 62vw - 96px), var(--color-dark) calc(4rem + 62vw));
+  background: linear-gradient(180deg, rgba(42, 73, 85, 0) calc(4rem + 62vw - 96px), var(--color-dark) calc(4rem + 62vw));
   opacity: calc(1 - var(--grow, 0));
 }
 .hero-shade {
@@ -390,8 +391,8 @@ html:not(.js) .hero__controls { display: none; }
   .hero-slides::after {
     background: linear-gradient(90deg,
       var(--color-dark) 0, var(--color-dark) var(--hero-solid-end),
-      rgba(65, 91, 139, 0.55) calc(var(--hero-solid-end) + 10vw),
-      rgba(65, 91, 139, 0.05) 100%);
+      rgba(42, 73, 85, 0.55) calc(var(--hero-solid-end) + 10vw),
+      rgba(42, 73, 85, 0.05) 100%);
   }
   .hero--slides { position: relative; display: flex; align-items: center; min-height: min(88vh, 820px); }
   .hero__stage { position: absolute; inset: 0; z-index: 1; height: auto; min-height: 0; pointer-events: none; }
@@ -441,21 +442,21 @@ html:not(.js) .hero__controls { display: none; }
 
 /* --- Region map (Why Asia) -------------------------------------------- */
 .region-map { margin: var(--space-xl) auto 0; max-width: 900px; }
-.region-map__card { border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35); background: var(--fmi-cream); }
+.region-map__card { border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35); background: var(--slr-paper) url("assets/brand/paper-contours.jpg") 0 0 / 600px 600px repeat; }
 .region-map__title {
-  background: var(--fmi-navy); color: var(--fmi-white); text-align: center;
+  background: var(--slr-teal); color: var(--slr-white); text-align: center;
   padding: var(--space-md) var(--space-md) var(--space-md);
-  border-bottom: 6px solid var(--fmi-green);  /* FMI green rule, decorative */
+  border-bottom: 6px solid var(--slr-copper);  /* FMI green rule, decorative */
 }
 .region-map__tagline {
-  margin: 0; font-family: var(--font-display); font-weight: var(--fw-semibold);
+  margin: 0; font-family: var(--font-display); font-weight: var(--fw-display);
   font-size: clamp(2rem, 1.3rem + 3.2vw, 3.75rem); line-height: 1.05; letter-spacing: var(--tracking-display);
-  color: var(--fmi-white);                     /* 6.8:1 on navy */
+  color: var(--slr-white);                     /* 6.8:1 on navy */
 }
 .region-map__name {
   margin: var(--space-2xs) 0 0; font-family: var(--font-sans); font-weight: var(--fw-bold);
   font-size: clamp(0.8125rem, 0.7rem + 0.5vw, 1.0625rem); text-transform: uppercase; letter-spacing: 0.16em;
-  color: var(--fmi-gold-light);                /* 5.4:1 on navy */
+  color: var(--slr-paper);                /* 5.4:1 on navy */
 }
 .region-map__link { display: block; overflow: hidden; }
 .region-map__link img { width: 100%; height: auto; transition: transform 300ms ease; }

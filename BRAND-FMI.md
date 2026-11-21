@@ -1,5 +1,64 @@
-# FMI brand rules for this site
+# Brand rules for this site
 
+> **Current source of truth: the "See. Love. Reach." campaign brand deck** (`SeeLoveReach_AsiaAwareness_BrandDeck.pdf`,
+> FMI, in the Google Drive folder "Asia Awareness Assets"). Its palette and fonts replace FMI's general
+> palette on this site. FMI's general guidelines (further down) still govern the FMI logo itself.
+
+## "See. Love. Reach." campaign (brand deck)
+
+- **Campaign name:** See. Love. Reach.
+- **Campaign tagline:** "See the Unseen. Love the Lost. Reach the Unreached."
+- **Conference lockup:** "See. Love. Reach." over "ASIA" over "AWARENESS CONFERENCE", with the Asia map.
+  There is also a horizontal header version.
+- **Purpose:** mobilize the global Foursquare community.
+  - Raise awareness of unreached people groups: UPGs, UUPGs, FPGs and Limited Access Areas.
+  - Inspire engagement through prayer, giving and action.
+  - Raise support for FMI's Global Missions Fund, culminating in a missions offering at Foursquare
+    Connection.
+- **Audiences:** senior pastors and credentialed ministers, missions leaders, individual donors and
+  supporters.
+
+### Colors
+
+| Name | HEX | Used on this site for |
+|---|---|---|
+| Sand | `#CBC0A7` | not used yet |
+| Paper | `#DED9CB` | page/paper background, map card, light text on teal |
+| Olive | `#59584A` | muted text on light cards |
+| Teal | `#2A4955` | header, hero, footer, schedule headers, headings and links on light, photo overlays |
+| Sage | `#77867A` | not used yet (too light for text on light, 3.4:1) |
+| Copper | `#B67C3A` | decorative rules and accent bars only (3.1:1 on light, so never small text) |
+| Charcoal | `#252C2D` | body text on light, button text |
+
+The deck's charcoal swatch lists RGB 139, 160, 3, which is FMI green, but its CMYK, HEX and the swatch
+itself are charcoal. The site uses the HEX value, `#252C2D`.
+
+**Derived for web contrast:**
+- copper-light `#E3B27A`:
+  - button fill with charcoal text (7.4:1);
+  - large display text on teal (5.0:1).
+- teal-deep `#17282F`: the photo shade.
+- card `#F4F1EA`: light cards.
+
+### Fonts
+
+| Role | Deck | Free web stand-in used here |
+|---|---|---|
+| Display | **Dejanire Headline Extra Bold** | **Playfair Display** 800 |
+| Tagline | **Gotham Medium** | Montserrat 500–700 |
+| Content | **Gotham Book** | Montserrat 400 |
+
+### Look and imagery
+
+- **Paper:** warm beige paper with faint topographic contour lines.
+  `assets/brand/paper-contours.jpg` is a generated, seamless match, used behind the map card.
+- **Photos:** real people across Asia, often clipped into organic, country-like shapes.
+- **Map:** FMI's four-region map (South Asia, North Asia, Southeast Asia, South Pacific) on the paper
+  background.
+
+---
+
+# FMI general brand guidelines (2020)
 Summary of the **Foursquare Missions International Brand Guidelines (2020)**, provided by Foursquare,
 and how this site applies them. Follow these for any future change to the site.
 
@@ -25,6 +84,9 @@ and how this site applies them. Follow these for any future change to the site.
 
 ## Color palette (from the guide)
 
+> Superseded on this site by the campaign palette above. The "Used on this site" column describes the
+> earlier FMI-styled version of the site.
+
 | Name | HEX | RGB | Used on this site for |
 |---|---|---|---|
 | Green (primary) | `#8BA003` | 139, 160, 3 | primary buttons (dark text), decorative rules, eyebrow bars |
@@ -46,6 +108,8 @@ and how this site applies them. Follow these for any future change to the site.
 - Green is never used as text.
 
 ## Typography
+
+> Superseded on this site by the campaign fonts above (Playfair Display + Montserrat).
 
 | Role | FMI font | Free web stand-in used here |
 |---|---|---|

@@ -59,13 +59,13 @@ with the site's CSS.
 
 ## Brand
 
-The site follows the **Foursquare Missions International (FMI) brand guidelines**. The rules are in
+The site follows the **"See. Love. Reach." campaign brand deck** from FMI. The rules are in
 **[BRAND-FMI.md](BRAND-FMI.md)**; read them before changing colors, fonts or logos.
 
-- **Tokens:** the FMI palette (`--fmi-*`) and the page's design tokens live in `:root` at the top of
-  `styles.css`.
-- **Fonts:** FMI specifies Recoleta Alt and Gotham, which are licensed fonts. The site uses the free
-  stand-ins Fraunces and Montserrat from Google Fonts. Swap in the real fonts if you get web licenses.
+- **Tokens:** the campaign palette (`--slr-*`) and the page's design tokens live in `:root` at the
+  top of `styles.css`.
+- **Fonts:** the deck specifies Dejanire Headline and Gotham, which are licensed fonts. The site uses
+  the free stand-ins Playfair Display and Montserrat from Google Fonts.
 - **Source files:** the master brand files live in the Google Drive folder **"Asia Awareness Assets"**:
   - the brand deck (`SeeLoveReach_AsiaAwareness_BrandDeck.pdf`);
   - conference logos;
