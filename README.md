@@ -143,8 +143,7 @@ Everything below needs real content before launch. Search the files for `PLACEHO
 
 ### Registration
 - [ ] **Full Conference price:** shows `$TBD` (card and FAQ "How much does it cost?").
-- [ ] **Planning Center URL, Full Conference:** `https://PLANNING-CENTER-URL.example/full`
-- [ ] **Planning Center URL, Evening Sessions:** `https://PLANNING-CENTER-URL.example/evening`
+- [x] **Registration link:** both tier buttons go to the Brushfire event page, https://brushfire.com/thefoursquarechurch/conference/645162/details
 - [ ] **Confirm Evening pricing wording:** "$20 with meal, registered in advance · or $5 at the door (session only)". Confirm whether $20 is per evening or covers both evenings, and whether the evening tier includes both Monday and Tuesday nights.
 - [ ] **Full Conference inclusions:** "Conference materials" is assumed; confirm.
 
