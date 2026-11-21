@@ -147,7 +147,6 @@ Everything below needs real content before launch. Search the files for `PLACEHO
 - [ ] **Planning Center URL, Evening Sessions:** `https://PLANNING-CENTER-URL.example/evening`
 - [ ] **Confirm Evening pricing wording:** "$20 with meal, registered in advance · or $5 at the door (session only)". Confirm whether $20 is per evening or covers both evenings, and whether the evening tier includes both Monday and Tuesday nights.
 - [ ] **Full Conference inclusions:** "Conference materials" is assumed; confirm.
-- [ ] **Host-home request:** copy says to request one "when you register". Make sure the Planning Center form asks.
 
 ### Speakers & Stories (6 cards)
 - [ ] For each card: photo (square, ~800×800, in `assets/`), name, role/title, nation.
@@ -158,7 +157,7 @@ Everything below needs real content before launch. Search the files for `PLACEHO
 - [ ] **Lunch options:** four `[Restaurant n] · [cuisine], [X] min` lines.
 
 ### Footer & contact
-- [ ] **Contact email:** `EMAIL@example.org` (appears in footer, registration footnote, host-home callout and FAQ).
+- [ ] **Contact email:** `EMAIL@example.org` (appears in footer, registration footnote and FAQ).
 - [x] **Living Water logo:** horizontal "Living Water / A Foursquare Church" logo in the footer (white). The circle mark alone is saved as `assets/brand/living-water-mark-*.png`. Swap in a higher-resolution or SVG version if you have one (the supplied file is 468px wide).
 - [x] **FMI logo:** in the footer (white). Swap for an official FMI file if you get one.
 - [ ] **Social URLs:** Facebook, Instagram, YouTube (`…/PLACEHOLDER`). Update the `aria-label`s if the accounts belong to FMI or the conference.
